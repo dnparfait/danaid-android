@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="danaf.danaid.org" version="0.1.0">
+  <name>Danaid</name>
+  <description>
+    Example Tabris.js App
+  </description>
+  <author email="christiankamdem2@gmail.com">
+    Christian Kamdem
+  </author>
+  <preference name="EnableDeveloperConsole" value="$IS_DEBUG" />
+</widget>
