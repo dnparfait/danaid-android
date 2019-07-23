@@ -29,37 +29,27 @@ exports.create = ()=>{
     popup.contentView.append(form);
     popup.open();
   };
+  const goSponsorSignUpForm = (id)=>{
+    let popup = new Popover();
+    let form = require('./sponsorSignUpForm.js').create();
+    popup.contentView.append(form);
+    popup.open();
+  };
   const goToLaboratorySignUpForm = (id)=>{
     let popup = new Popover();
     let form = require('./laboratorySignUpForm.js').create();
     popup.contentView.append(form);
     popup.open();
   };
-  const goToUserSignInForm = (id)=>{
+  const goToUserSignUpForm = (id)=>{
     let popup = new Popover();
     let form = require('./userSignUpForm.js').create();
     popup.contentView.append(form);
     popup.open();
   };
-  const goToDoctorSignInForm = (navigation)=>{
+  const goToDoctorSignUpForm = (id)=>{
     let popup = new Popover();
     let form = require('./doctorSignUpForm.js').create();
-    const backArrowImage = new ImageView({
-      left:0,
-      bottom:25,
-      image:'src/icons/left-arrow.png',
-      width:80,
-      height:30
-    }).on('tap',()=>{
-      popup.close();
-    });
-    form.append(backArrowImage);
-    popup.contentView.append(form);
-    popup.open();
-  };
-  const goToHealthCenterSignInForm = (navigation)=>{
-    let popup = new Popover();
-    let form = require('./healthCenterSignUpForm.js').create();
     const backArrowImage = new ImageView({
       left:0,
       bottom:25,
@@ -110,7 +100,7 @@ exports.create = ()=>{
     textColor:appBasicsInformations.color.color2,
     background:appBasicsInformations.color.color1,
     cornerRadius:4
-  }).appendTo(connectionComposite).on('tap',goToUserSignInForm);
+  }).appendTo(connectionComposite).on('tap',goToUserSignUpForm);
   const pharmacyButton = new Button({
     id:'pharmacyButton',
     left:25,
@@ -132,7 +122,7 @@ exports.create = ()=>{
     textColor:appBasicsInformations.color.color2,
     background:appBasicsInformations.color.color1,
     cornerRadius:4
-  }).appendTo(connectionComposite).on('tap',goToDoctorSignInForm);
+  }).appendTo(connectionComposite).on('tap',goToDoctorSignUpForm);
   const laboratoryButton = new Button({
     id:'laboratoryButton',
     left:25,
@@ -165,6 +155,6 @@ exports.create = ()=>{
     textColor:appBasicsInformations.color.color2,
     background:appBasicsInformations.color.color1,
     cornerRadius:4
-  }).appendTo(connectionComposite).on('tap',goToUserSignInForm);
+  }).appendTo(connectionComposite).on('tap',goSponsorSignUpForm);
   return signUp;
 };

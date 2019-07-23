@@ -25,9 +25,9 @@ exports.create = (id)=>{
   const callHandler = ()=>{
     dataToSend.name = formName.text;
     dataToSend.surname = formSurName.text;
-    dataToSend.tel = localStorage.getItem('telephone');
+    dataToSend.country = localStorage.getItem('telephone');
     dataToSend.country = localStorage.getItem('country');
-    dataToSend.matrimonialStatut = items[formStatutMatrimonial.selectionIndex];
+    dataToSend.matrimonialStatut = formStatutMatrimonial.text;
     dataToSend.email = formEmail.text;
     dataToSend.region = formRegion.text;
     dataToSend.commune = formCommune.text;

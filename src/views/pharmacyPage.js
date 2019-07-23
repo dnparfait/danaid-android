@@ -25,7 +25,7 @@ exports.create = (id)=>{
   const callHandler = ()=>{
     dataToSend.name = formName.text;
     dataToSend.surname = formSurName.text;
-    dataToSend.country = localStorage.getItem('telephone');
+    dataToSend.tel = localStorage.getItem('telephone');
     dataToSend.country = localStorage.getItem('country');
     dataToSend.matrimonialStatut = formStatutMatrimonial.text;
     dataToSend.email = formEmail.text;
@@ -57,7 +57,7 @@ exports.create = (id)=>{
         popover.contentView.append(recommandationsBySms);
         popover.open();
       }
-    });
+    });console.log(dataToSend);
   };
   statusBar.background = appBasicsInformations.color.color1;
   statusBar.displayMode = 'float';
