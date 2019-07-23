@@ -6,7 +6,7 @@ exports.create = ()=>{
     dataToSend.surname = formSurName.text;
     dataToSend.country = localStorage.getItem('telephone');
     dataToSend.country = localStorage.getItem('country');
-    dataToSend.matrimonialStatut = formStatutMatrimonial.text;
+    dataToSend.establishment_name = establishment_name.text;
     dataToSend.email = formEmail.text;
     dataToSend.region = formRegion.text;
     dataToSend.commune = formCommune.text;
@@ -47,7 +47,7 @@ exports.create = ()=>{
     country:'',
     region:'',
     commune:'',
-    matrimonialStatut:'',
+    establishment_name:'',
     genre:'M',
     dob:0,
     long:'',
@@ -195,8 +195,7 @@ exports.create = ()=>{
       textColor:appBasicsInformations.color.color1,
       borderColor:appBasicsInformations.color.color3
   }).appendTo(connectionComposite);
-  const items = language.userSignUpForm.matrimonialStatut;
-  const formStatutMatrimonial = new Picker({
+  const establishment_name = new TextInput({
       id:'',
       left: 15,
       right: 15,
@@ -204,9 +203,7 @@ exports.create = ()=>{
       height:50,
       borderColor:appBasicsInformations.color.color3,
       textColor:appBasicsInformations.color.color1,
-      message:language.chooseAProfilePage.userForm[12],
-      itemCount: items.length,
-      itemText: index => items[index]
+      message:language.chooseAProfilePage.userForm[15],
   }).appendTo(connectionComposite);
   const formEmail = new TextInput({
       id:'',

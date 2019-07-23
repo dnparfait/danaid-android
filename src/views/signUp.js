@@ -17,6 +17,24 @@ exports.create = ()=>{
           // executeNavigationView.toolbarVisible = false;
         executeNavigationView.on('disappear',function(){this.dispose();});
   //Functions
+  const goToPharmacySignUpForm = (id)=>{
+    let popup = new Popover();
+    let form = require('./pharmacySignUpForm.js').create();
+    popup.contentView.append(form);
+    popup.open();
+  };
+  const goToClinicSignUpForm = (id)=>{
+    let popup = new Popover();
+    let form = require('./pharmacySignUpForm.js').create();
+    popup.contentView.append(form);
+    popup.open();
+  };
+  const goToLaboratorySignUpForm = (id)=>{
+    let popup = new Popover();
+    let form = require('./laboratorySignUpForm.js').create();
+    popup.contentView.append(form);
+    popup.open();
+  };
   const goToUserSignInForm = (id)=>{
     let popup = new Popover();
     let form = require('./userSignUpForm.js').create();
@@ -103,7 +121,7 @@ exports.create = ()=>{
     textColor:appBasicsInformations.color.color2,
     background:appBasicsInformations.color.color1,
     cornerRadius:4
-  }).appendTo(connectionComposite).on('tap',goToUserSignInForm);
+  }).appendTo(connectionComposite).on('tap',goToPharmacySignUpForm);
   const doctorButton = new Button({
     id:'doctorButton',
     left:25,
@@ -125,7 +143,7 @@ exports.create = ()=>{
     textColor:appBasicsInformations.color.color2,
     background:appBasicsInformations.color.color1,
     cornerRadius:4
-  }).appendTo(connectionComposite).on('tap',goToUserSignInForm);
+  }).appendTo(connectionComposite).on('tap',goToLaboratorySignUpForm);
   const healthCenterButton = new Button({
     id:'healthCenterButton',
     left:25,
@@ -136,7 +154,7 @@ exports.create = ()=>{
     textColor:appBasicsInformations.color.color2,
     background:appBasicsInformations.color.color1,
     cornerRadius:4
-  }).appendTo(connectionComposite).on('tap',goToUserSignInForm);
+  }).appendTo(connectionComposite).on('tap',goToClinicSignUpForm);
   const sponsorButton = new Button({
     id:'healthCenterButton',
     left:25,
