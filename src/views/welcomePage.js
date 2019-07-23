@@ -99,16 +99,12 @@ exports.create = ()=>{
     width:50,
     refreshIndicator:true
   }).appendTo(wrapper);
-  let interval = setInterval(()=>{
-    let that = this;
-    if(dataFromGeolocation == null){
       const ajax = require('./../helpers/ajax.js');
       //
         let ipAdress = ajax('','https://api.ipify.org?format=json').then((response)=>{
         ajax('','http://api.ipstack.com/'+response.ip+'?access_key=530428304e0270250a52a1c0efe3a0c9').then((response)=>{
                   dataFromGeolocation = response.location;
                   loader.refreshIndicator = false;
-                  clearInterval(that);
                   startButton.appendTo(wrapper);
                   //console.log(response.location.calling_code);
                 }).catch((error)=>{console.log(error);
@@ -119,8 +115,5 @@ exports.create = ()=>{
                     }).open();
                 });
         });
-      //
-    }
-  },1000);
   return startPage;
 };

@@ -5,7 +5,7 @@ module.exports = (data,url,method='GET') =>{
                    {
                    });
                   xhrSendData.addEventListener("load", () =>
-                   {console.log(xhrSendData);
+                   {
                           resolve(JSON.parse(xhrSendData.$responseData));
                    });
                   xhrSendData.addEventListener("error",()=>{
