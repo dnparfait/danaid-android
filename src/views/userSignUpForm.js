@@ -9,6 +9,7 @@ exports.create = (id)=>{
   });
   let dataToSend = {
     language:localStorage.getItem('language'),
+    idAccountType:1,
     tel:'',
     name:'',
     surname:'',

@@ -9,7 +9,7 @@ exports.create = ()=>{
   });
   let dataToSend = {
     language:localStorage.getItem('language'),
-    idMember:0,
+    idAccountType:3,
     tel:'',
     name:'',
     surname:'',
@@ -19,11 +19,12 @@ exports.create = ()=>{
     commune:'',
     code:'',
     genre:'M',
+    speciality:'',
     dob:0,
     long:'',
     lat:''
   };
-  const callHandler = ()=>{
+  const callHandler = ()=>{console.log('hello');
     dataToSend.name = formName.text;
     dataToSend.surname = formSurName.text;
     dataToSend.country = localStorage.getItem('telephone');
@@ -32,11 +33,10 @@ exports.create = ()=>{
     dataToSend.email = formEmail.text;
     dataToSend.region = formRegion.text;
     dataToSend.commune = formCommune.text;
-    dataToSend.profession = formSpeciality.text;
+    dataToSend.speciality = formSpeciality.text;
     dataToSend.genre = switcher.id;
     dataToSend.long = switcher.id;
     dataToSend.lat = switcher.id;
-    console.log(dataToSend);
     let handlerUser = require('./../modules/handlerUserSignUpForm.js').create(dataToSend).then((response)=>{
       if(response.error === true){
         new AlertDialog({

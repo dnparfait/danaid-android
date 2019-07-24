@@ -9,6 +9,7 @@ exports.create = (id)=>{
   });
   let dataToSend = {
     language:localStorage.getItem('language'),
+    idAccountType:6,
     tel:'',
     name:'',
     surname:'',
@@ -27,7 +28,7 @@ exports.create = (id)=>{
     dataToSend.surname = formSurName.text;
     dataToSend.country = localStorage.getItem('telephone');
     dataToSend.country = localStorage.getItem('country');
-    dataToSend.matrimonialStatut = formStatutMatrimonial.text;
+    dataToSend.matrimonialStatut = items[formStatutMatrimonial.selectionIndex];;
     dataToSend.email = formEmail.text;
     dataToSend.region = formRegion.text;
     dataToSend.commune = formCommune.text;

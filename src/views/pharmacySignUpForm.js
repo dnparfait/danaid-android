@@ -1,6 +1,22 @@
 exports.create = ()=>{
   const {Popover,Switch,Picker,AlertDialog,DateDialog,CollectionView,statusBar,ImageView,TextView,Composite,Button,ScrollView,TextInput} = require('tabris');
   const appBasicsInformations = require('./../helpers/appBasicsInformations.js');
+  let dataToSend = {
+    language:localStorage.getItem('language'),
+    idAccountType:2,
+    tel:'',
+    name:'',
+    surname:'',
+    email:'',
+    country:'',
+    region:'',
+    commune:'',
+    establishment_name:'',
+    genre:'M',
+    dob:0,
+    long:'',
+    lat:''
+  };
   const callHandler = ()=>{
     dataToSend.name = formName.text;
     dataToSend.surname = formSurName.text;
@@ -38,21 +54,6 @@ exports.create = ()=>{
       };
     });
     };
-  let dataToSend = {
-    language:localStorage.getItem('language'),
-    tel:'',
-    name:'',
-    surname:'',
-    email:'',
-    country:'',
-    region:'',
-    commune:'',
-    establishment_name:'',
-    genre:'M',
-    dob:0,
-    long:'',
-    lat:''
-  };
   statusBar.background = appBasicsInformations.color.color1;
   statusBar.displayMode = 'float';
   let language = null;
