@@ -26,7 +26,7 @@ module.exports = ()=>{
   const name = new TextView({
     centerX:0,
     top:160,
-    text:'Christian Kamdem',
+    text:localStorage.getItem('name')+' '+localStorage.getItem('surname'),
     textColor:appBasicsInformations.color.color3
   }).appendTo(wrapper);
   const items = ['Langue', 'Profile informations', 'Matricule','App informations','A propos'];
