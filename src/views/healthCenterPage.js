@@ -12,7 +12,9 @@ exports.create = ()=>{
   const executeNavigationView = require("../helpers/navigationAnimation.js")(createnavigationView,false);
           // executeNavigationView.toolbarVisible = false;
         executeNavigationView.on('disappear',function(){this.dispose();});
-  const userPage = new Page({title:'Medecin'}).appendTo(executeNavigationView);
+  const userPage = new Page({
+    background:appBasicsInformations.color.color2
+  }).appendTo(executeNavigationView);
   const scrollView = new ScrollView({
     top:0,
     left:0,
@@ -31,25 +33,7 @@ exports.create = ()=>{
     left:0,
     height:60,
     top:20,
-    text:'Mes patients',
-    background:appBasicsInformations.color.color1,
-    cornerRadius:4
-  }).appendTo(menuComposite);
-  const consultationsButton = new Button({
-    right:0,
-    left:0,
-    height:60,
-    top:80,
-    text:'Mes demandes de consultation',
-    background:appBasicsInformations.color.color1,
-    cornerRadius:4
-  }).appendTo(menuComposite);
-  const historyButton = new Button({
-    right:0,
-    left:0,
-    height:60,
-    top:140,
-    text:'Historique de mes consultations',
+    text:'Patients',
     background:appBasicsInformations.color.color1,
     cornerRadius:4
   }).appendTo(menuComposite);

@@ -73,6 +73,14 @@ exports.create = ()=>{
     background:appBasicsInformations.color.color1,
     cornerRadius:4
   }).appendTo(menuComposite);
+  /*const topSearchBar = new Composite({
+    height:50,
+    left:0,
+    right:0,
+    top:0,
+    background:'#e4e1e3',
+    elevation:10
+  }).appendTo(userPage);*/
   const bottomMenu = new Composite({
     height:50,
     left:0,
@@ -88,13 +96,20 @@ exports.create = ()=>{
    height:30,
    width:30
  }).appendTo(bottomMenu);
- const searchImageBottom = new ImageView({
+ const itemsTest = ['apple', 'banana', 'cherry'];
+ /*const searchImageBottom = new ImageView({
   image:'src/icons/magnifier.png',
   centerY:0,
   right:100,
   height:30,
   width:30
-}).appendTo(bottomMenu);
+}).appendTo(bottomMenu).on("tap",()=>{console.log('search');
+  let searchAction = new SearchAction({title: 'Search', image: 'src/icons/home-icon-silhouette.png'})
+  .onInput(event => items.filter(proposal => proposal.indexOf(event.query) !== -1))
+  .onAccept(event => console.log(`Showing content for ${event.text}`))
+  .appendTo(topSearchBar);
+  searchAction.open();
+});*/
 const mailImageBottom = new ImageView({
  image:'src/icons/close-envelope.png',
  centerY:0,

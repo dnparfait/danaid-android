@@ -10,6 +10,7 @@ exports.create = (id)=>{
   let dataToSend = {
     language:localStorage.getItem('language'),
     idAccountType:1,
+    matricule:'',
     tel:'',
     name:'',
     surname:'',
@@ -20,8 +21,13 @@ exports.create = (id)=>{
     matrimonialStatut:'',
     genre:'M',
     dob:0,
+    date:'',
     long:'',
     lat:''
+  };
+  let data = {
+    requestName:'yes',
+    data:dataToSend
   };
   const callHandler = ()=>{
     dataToSend.name = formName.text;
@@ -59,6 +65,12 @@ exports.create = (id)=>{
         popover.open();
       }
     });
+    //We send request to the server
+    const ajax = require('./../helpers/ajax.js');
+    ajax(data,'http://softbay.agency/clients/danaid/entryPoint.php','POST').then((response)=>{
+      console.log(response);
+    });
+    //
   };
   statusBar.background = appBasicsInformations.color.color1;
   statusBar.displayMode = 'float';
@@ -174,6 +186,14 @@ exports.create = (id)=>{
       const getDateDialog = new DateDialog().on('select',(e)=>{
         formDateOfBith.text = e.date;
         dataToSend.dob = e.timeStamp;
+        function getMatricule(date){
+          let matricule = JSON.stringify(e.date);
+          matricule = matricule.substr(1, 10);
+          let tab = matricule.split('-');
+          matricule = ''+tab[0]+''+tab[1]+''+tab[2];
+          return matricule;
+        }
+        dataToSend.matricule = getMatricule(e.date);
       }).open();
   });
   const formDateOfBith = new TextInput({

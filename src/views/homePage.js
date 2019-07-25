@@ -71,7 +71,8 @@ exports.create = (dataFromGeolocation)=>{
         //
         //We ask code
         const popup = new Popover();
-        let nb = phoneIndicatif.text+phoneNumber.text;
+        let nb = phoneIndicatif.message+phoneNumber.text;
+        localStorage.setItem('telephone',nb);
         let popoverContent = require('./askConfirmationCode.js').create(nb);
         popup.contentView.append(popoverContent);
         const cancel = new Button({
