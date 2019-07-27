@@ -21,6 +21,8 @@ exports.create = (data)=>{
         if(currentYear-localStorage.getItem('year')<18){
           resolve({error:true,message:language.userSignUpForm.errorSendingForm.date});
         }else{
+          localStorage.setItem('name',data.name);
+          localStorage.setItem('surname',data.surname);
           resolve({error:false});
         }
       }

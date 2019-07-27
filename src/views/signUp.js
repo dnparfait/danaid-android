@@ -42,10 +42,7 @@ exports.create = ()=>{
     popup.open();
   };
   const goToUserSignUpForm = (id)=>{
-    let popup = new Popover();
-    let form = require('./userSignUpForm.js').create();
-    popup.contentView.append(form);
-    popup.open();
+    require('./userSignUpForm.js').create().appendTo(executeNavigationView);
   };
   const goToDoctorSignUpForm = (id)=>{
     let popup = new Popover();

@@ -1,12 +1,19 @@
 exports.create = (id)=>{
-  const {Popover,Switch,Picker,AlertDialog,DateDialog,CollectionView,statusBar,ImageView,TextView,Composite,Button,ScrollView,TextInput} = require('tabris');
+  const {Page,Popover,Switch,Picker,AlertDialog,DateDialog,CollectionView,statusBar,ImageView,TextView,Composite,Button,ScrollView,TextInput} = require('tabris');
   const appBasicsInformations = require('./../helpers/appBasicsInformations.js');
+  const userSignUpPage = new Page({
+    top:0,
+    bottom:0,
+    left:0,
+    right:0,
+    background:appBasicsInformations.color.color2
+  });
   const scrollView = new ScrollView({
     top:0,
     bottom:0,
     left:0,
     right:0
-  });
+  }).appendTo(userSignUpPage);
   let dataToSend = {
     language:localStorage.getItem('language'),
     idAccountType:1,
@@ -60,6 +67,7 @@ exports.create = (id)=>{
           cornerRadius:4
         }).on('tap',()=>{
           popover.close();
+          require('./../views/userPage.js').create();
         });
         popover.contentView.append(skipValidate);
         popover.contentView.append(recommandationsBySms);
@@ -314,5 +322,5 @@ exports.create = (id)=>{
     background:appBasicsInformations.color.color1,
     cornerRadius:4
   }).appendTo(connectionComposite).on('tap',callHandler);
-return scrollView;
+return userSignUpPage;
 };
