@@ -11,7 +11,6 @@ exports.create = (code)=>{
   };
   const ajax = require('./../helpers/ajax.js');
   ajax(data,'http://softbay.agency/clients/danaid/entryPoint.php','POST').then((response)=>{
-    console.log(response);
   });
   return code;
 };

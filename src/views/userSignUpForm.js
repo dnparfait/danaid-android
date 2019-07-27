@@ -23,10 +23,11 @@ exports.create = (id)=>{
     dob:0,
     date:'',
     long:'',
-    lat:''
+    lat:'',
+    year:0
   };
   let data = {
-    requestName:'yes',
+    requestName:'registration',
     data:dataToSend
   };
   const callHandler = ()=>{
@@ -48,7 +49,7 @@ exports.create = (id)=>{
           buttons: {ok: 'OK'}
         }).open();
       }else{
-        let popover = new Popover();console.log('reussit');
+        let popover = new Popover();
         const recommandationsBySms = require('./../views/recommandationsBySms.js').create();
         const skipValidate = new Button({
           right:10,
@@ -65,12 +66,6 @@ exports.create = (id)=>{
         popover.open();
       }
     });
-    //We send request to the server
-    const ajax = require('./../helpers/ajax.js');
-    ajax(data,'http://softbay.agency/clients/danaid/entryPoint.php','POST').then((response)=>{
-      console.log(response);
-    });
-    //
   };
   statusBar.background = appBasicsInformations.color.color1;
   statusBar.displayMode = 'float';
@@ -184,8 +179,13 @@ exports.create = (id)=>{
     textColor:appBasicsInformations.color.color2
   }).appendTo(connectionComposite).on('tap',()=>{
       const getDateDialog = new DateDialog().on('select',(e)=>{
-        formDateOfBith.text = e.date;
-        dataToSend.dob = e.timeStamp;
+        let x = JSON.stringify(e.date);
+        x = x.substr(1, 10);
+        let tab = x.split('-');
+        formDateOfBith.text = ''+tab[2]+'-'+tab[1]+'-'+tab[0];
+        let dob = ''+tab[2]+'-'+tab[1]+'-'+tab[0];
+        localStorage.setItem('year',tab[0]);
+        localStorage.setItem('dob',dob);
         function getMatricule(date){
           let matricule = JSON.stringify(e.date);
           matricule = matricule.substr(1, 10);
