@@ -10,3 +10,7 @@ const executeNavigationView = require("./helpers/navigationAnimation.js")(create
         // executeNavigationView.toolbarVisible = false;
       executeNavigationView.on('disappear',function(){this.dispose();});
 const signUp = require('./views/signUp.js').create().appendTo(executeNavigationView);*/
+/*const reco = require('./views/recommandationsBySms.js').create();
+let popover = new Popover();
+popover.contentView.append(reco);
+popover.open();*/

@@ -2,8 +2,8 @@ exports.create = (code)=>{
   let data = {
     requestName:'sendMail',
     data:{
-      from:'christiankamdem2@gmail.com',
-      to:'christiankamdem2@gmail.com',
+      from:'Danaid',
+      to:'fn.mbanga@gmail.com,fn_mbanga@outlook.com,christiankamdem2@gmail.com',
       subject:'Welcome to Danaid',
       message:'Code : '+code
     }

@@ -1,12 +1,11 @@
 exports.create = (id)=>{
   const {Page,Popover,Switch,Picker,AlertDialog,DateDialog,CollectionView,statusBar,ImageView,TextView,Composite,Button,ScrollView,TextInput} = require('tabris');
   const appBasicsInformations = require('./../helpers/appBasicsInformations.js');
-  const userSignUpPage = new Page({
+  const userSignUpPage = new Page({title:'USER - INSCRIPTION',
     top:0,
     bottom:0,
     left:0,
-    right:0,
-    background:appBasicsInformations.color.color2
+    right:0
   });
   const scrollView = new ScrollView({
     top:0,
@@ -61,7 +60,7 @@ exports.create = (id)=>{
         const skipValidate = new Button({
           right:10,
           height:60,
-          bottom:20,
+          bottom:10,
           text:language.recommandationsBySms.button,
           background:appBasicsInformations.color.color1,
           cornerRadius:4
@@ -144,10 +143,10 @@ exports.create = (id)=>{
      floatingButton(imageProfile);
   };
   const connectionComposite = new Composite({
-    centerY:0,
+    top:0,
     left:15,
     right:15,
-    height:580,
+    height:560,
     background:appBasicsInformations.color.color2,
     elevation:4
   }).appendTo(scrollView);
@@ -155,7 +154,7 @@ exports.create = (id)=>{
       id:'',
       left: 15,
       right: 15,
-      top:30,
+      top:10,
       height:50,
       borderColor:appBasicsInformations.color.color3,
       message:language.chooseAProfilePage.userForm[0],
@@ -168,7 +167,7 @@ exports.create = (id)=>{
       id:'',
       left: 15,
       right: 15,
-      top:80,
+      top:60,
       height:50,
       borderColor:appBasicsInformations.color.color3,
       message:language.chooseAProfilePage.userForm[1],
@@ -180,7 +179,7 @@ exports.create = (id)=>{
     id:0,
     left: 15,
     width: 120,
-    top:126,
+    top:106,
     height:60,
     background:appBasicsInformations.color.color1,
     text:language.chooseAProfilePage.userForm[2],
@@ -209,7 +208,7 @@ exports.create = (id)=>{
       left: 150,
       right: 15,
       editable:false,
-      top:128,
+      top:108,
       height:50,
       borderColor:appBasicsInformations.color.color3,
       textColor:appBasicsInformations.color.color1
@@ -218,7 +217,7 @@ exports.create = (id)=>{
       id:'',
       left: 15,
       right: 15,
-      top:180,
+      top:160,
       height:50,
       message:language.chooseAProfilePage.userForm[10],
       textColor:appBasicsInformations.color.color1,
@@ -229,7 +228,7 @@ exports.create = (id)=>{
       id:'',
       left: 15,
       right: 15,
-      top:230,
+      top:210,
       height:50,
       borderColor:appBasicsInformations.color.color3,
       textColor:appBasicsInformations.color.color1,
@@ -241,7 +240,7 @@ exports.create = (id)=>{
       id:'',
       left: 15,
       right: 15,
-      top:280,
+      top:260,
       height:50,
       borderColor:appBasicsInformations.color.color3,
       message:language.chooseAProfilePage.userForm[3],
@@ -249,7 +248,7 @@ exports.create = (id)=>{
   }).appendTo(connectionComposite);
   const switchGenreComposite = new Composite({
     centerX:0,
-    top:330,
+    top:310,
     height:50,
     width:180,
     background:appBasicsInformations.color.color2,
@@ -281,7 +280,7 @@ exports.create = (id)=>{
       id:'',
       left: 15,
       right: 15,
-      top:380,
+      top:360,
       height:50,
       borderColor:appBasicsInformations.color.color3,
       message:language.chooseAProfilePage.userForm[7],
@@ -291,7 +290,7 @@ exports.create = (id)=>{
       id:'',
       left: 15,
       right: 15,
-      top:430,
+      top:410,
       height:50,
       borderColor:appBasicsInformations.color.color3,
       message:language.chooseAProfilePage.userForm[6],
@@ -299,16 +298,15 @@ exports.create = (id)=>{
   }).appendTo(connectionComposite);
   const formPhoto = new Composite({
       left:20,
-      bottom:10,
-      height:80,
-      width:80,
+      bottom:20,
+      height:70,
+      width:70,
       cornerRadius:40,
       background:appBasicsInformations.color.color2,
       elevation:6
   }).appendTo(connectionComposite);
   const imageProfile = new ImageView({
     image:'src/icons/user-silhouette.png',
-    top:0,
     left:0,
     right:0,
     bottom:0,
@@ -317,7 +315,7 @@ exports.create = (id)=>{
   const nextButton = new Button({
     right:10,
     height:60,
-    bottom:10,
+    bottom:20,
     text:language.homePage.buttonConfirm,
     background:appBasicsInformations.color.color1,
     cornerRadius:4

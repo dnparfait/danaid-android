@@ -2,7 +2,7 @@ module.exports = ()=>{
   const {AlertDialog,CollectionView,Switch,Popover,ImageView,TextView,Composite,Button,ScrollView,TextInput} = require('tabris');
   const appBasicsInformations = require('./../helpers/appBasicsInformations.js');
   let language = require('./../helpers/language.js').fr;
-  const wrapper = new Composite({
+  const wrapper = new ScrollView({
     top:0,
     left:0,
     right:0,
@@ -26,12 +26,12 @@ module.exports = ()=>{
   const name = new TextView({
     centerX:0,
     top:160,
-    text:localStorage.getItem('name')+' '+localStorage.getItem('surname'),
+    text:'Hello'+', '+localStorage.getItem('surname'),
     textColor:appBasicsInformations.color.color3
   }).appendTo(wrapper);
-  const items = ['Langue', 'Profile informations', 'Matricule','App informations','A propos'];
+  const items = ['Langue', 'Profile informations','App informations','A propos'];
   const profileInfos = new CollectionView({
-    left: 20, top: 250, width:200, bottom: 10,
+    left: 20, top: 250, width:200, height: 300,
     itemCount: items.length,
     cellHeight:50,
     createCell: () => new TextView(),
@@ -39,6 +39,25 @@ module.exports = ()=>{
       view.text = items[index];
       view.font = '18px calibri';
       view.textColor = appBasicsInformations.color.color3;
+      if(index === 0){
+        //
+      }else if(2){
+        view.on('tap',()=>{
+          new AlertDialog({
+            title: items[index],
+            message:'Danaid',
+            buttons: {ok: 'OK'}
+          }).open();
+        });
+      }else if(3){
+        view.on('tap',()=>{
+          new AlertDialog({
+            title: items[index],
+            message:'Danaid V0.1',
+            buttons: {ok: 'OK'}
+          }).open();
+        });
+      }
     }
   }).appendTo(wrapper);
   const c1 = new ImageView({
@@ -48,20 +67,6 @@ module.exports = ()=>{
    height:20,
    width:50
  }).appendTo(wrapper);
- const c2 = new ImageView({
-  image:'src/icons/next.png',
-  top:365,
-  right:10,
-  height:20,
-  width:50
-}).appendTo(wrapper);
-const c3 = new ImageView({
- image:'src/icons/next.png',
- top:415,
- right:10,
- height:20,
- width:50
-}).appendTo(wrapper);
   const switchLanguageComposite = new Composite({
     top:250,
     right:15,

@@ -12,6 +12,10 @@ module.exports = {
       alertMessageEmptyField:'Veuillez renseigner votre numéro de téléphone!',
       alertMessageInvalidPhoneNumber:'Numéro de téléphone invalide!'
     },
+    userPage:{
+      menuPrincipal:['SERVICES','CHOISIR UN MEDECIN',
+    'MES COTISATIONS','GERER LES SOINS DE MA FAMILLE','AJOUTER UN MEMBRE DE MA FAMILLE']
+    },
     askConfirmationCode:{
       title:'CODE DE CONFIRMATION',
       content:'ENTREZ LE CODE DE CONFIRMATION RECU PAR SMS',
@@ -39,7 +43,8 @@ module.exports = {
       doneButton:'Valider'
     },
     recommandationsBySms:{
-      button:'Suivant/ENvoyer'
+      button:'Suivant/Envoyer',
+      content:'Pouvez vous nous recommander deux autres personnes?'
     }
   },
   en:{
@@ -54,6 +59,10 @@ module.exports = {
       buttonConfirm:'NEXT',
       alertMessageEmptyField:'Please enter your telephone number!',
       alertMessageInvalidPhoneNumber:'Invalid phone number!'
+    },
+    userPage:{
+      menuPrincipal:['SERVICES','CHOOSE A DOCTOR',
+    'MY CONTRIBUTIONS','MANAGE MY FAMILY S CARE','ADD A FAMILY MEMBER']
     },
     askConfirmationCode:{
       title:'CONFIRMATION CODE',
@@ -82,7 +91,8 @@ module.exports = {
       doneButton:'Done'
     },
     recommandationsBySms:{
-      button:'Skip/Validate'
+      button:'Skip/Validate',
+      content:'Can you please notify your contacts about us?'
     }
   }
 };

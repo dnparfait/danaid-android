@@ -10,13 +10,27 @@ exports.create = ()=>{
   const conteneur = new Composite({
     left:20,
     right:20,
-    top:180,
-    bottom:180,
+    centerY:0,
+    height:300,
     background:appBasicsInformations.color.color2,
     elevation:6
   });
+  new TextView({
+    text:'RECOMMANDATIONS',
+    font:'18px calibri bold',
+    centerX:0,
+    top:10,
+    textColor:appBasicsInformations.color.color1
+  }).appendTo(conteneur);
+  new TextView({
+    text:language.recommandationsBySms.content,
+    font:'12px calibri bold',
+    centerX:0,
+    top:40,
+    textColor:appBasicsInformations.color.color3
+  }).appendTo(conteneur);
   const phoneNumber1 = new TextInput({
-    top:50,
+    top:90,
     left:20,
     right:20,
     height:60,
@@ -26,7 +40,7 @@ exports.create = ()=>{
     textColor:appBasicsInformations.color.color3
   }).appendTo(conteneur);
   const phoneNumber2 = new TextInput({
-    top:110,
+    top:150,
     left:20,
     right:20,
     height:60,

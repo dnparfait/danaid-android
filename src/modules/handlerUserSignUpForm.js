@@ -10,7 +10,7 @@ exports.create = (data)=>{
     data.dob = localStorage.getItem('dob');
     let currentYear = d.getFullYear();
     const regexMail =  /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
-    if(data.name == '' || data.surname == '' || data.dob == '' || data.profession == ''
+    if(data.name == '' || data.surname == '' || data.dob == 0 || data.profession == ''
   || data.matrimonialStatut == '' || data.region == '' || data.commune == '' || data.email == ''
 || data.genre == ''){
             resolve({error:true,message:language.userSignUpForm.errorSendingForm.emptyForm});
@@ -19,10 +19,11 @@ exports.create = (data)=>{
         resolve({error:true,message:language.userSignUpForm.errorSendingForm.emailRegex});
       }else{
         if(currentYear-localStorage.getItem('year')<18){
+          localStorage.setItem('year',2019);
           resolve({error:true,message:language.userSignUpForm.errorSendingForm.date});
         }else{
           localStorage.setItem('name',data.name);
-          localStorage.setItem('surname',data.surname);
+          localStorage.setItem('surname',data.surname);console.log(data);
           resolve({error:false});
         }
       }
