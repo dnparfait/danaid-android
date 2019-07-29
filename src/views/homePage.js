@@ -67,7 +67,7 @@ exports.create = (dataFromGeolocation)=>{
         //Countdown for code CONFIRMATION
         setTimeout(()=>{
           randomCode = 0;
-        },120000);
+        },300000);
         //
         //We ask code
         const popup = new Popover();
