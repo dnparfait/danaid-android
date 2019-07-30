@@ -1,5 +1,5 @@
 exports.create = ()=>{
-  const {Page,SearchAction,RadioButton,drawer,AlertDialog,Switch,Popover,statusBar,ImageView,TextView,Composite,Button,ScrollView,TextInput} = require('tabris');
+  const {Page,SearchAction,NavigationView,RadioButton,drawer,AlertDialog,Switch,Popover,statusBar,ImageView,TextView,Composite,Button,ScrollView,TextInput} = require('tabris');
   const appBasicsInformations = require('./../helpers/appBasicsInformations.js');
   let language = null;
   if(localStorage.getItem('language') === 'en'){
@@ -10,7 +10,6 @@ exports.create = ()=>{
   statusBar.background = appBasicsInformations.color.color1;
   statusBar.displayMode = 'float';
   drawer.enabled = true;
-
   const ajax = require('./../helpers/ajax.js');
   const userDrawer = require('./../views/userDrawer.js')().appendTo(drawer);
   let createnavigationView;
@@ -84,39 +83,39 @@ exports.create = ()=>{
     background:appBasicsInformations.color.color1,
     cornerRadius:4
   }).appendTo(menuComposite).on('tap',()=>{
-    let popover = new Popover();
-    const composite = new Composite({
-      top:20,
-      left:0,
-      right:0,
-      height:60,
-      background:appBasicsInformations.color.color2,
-      elevation:6
-    });
-    let searchDoctor = require('./searchDoctor.js')();
-    popover.contentView.append(searchDoctor);
-    const leftArrow = new ImageView({
-     image:'src/icons/left-arrow.png',
-     top:20,
-     left:10,
-     height:25,
-     width:50
-   }).appendTo(composite).on('tap',()=>{
-     popover.close();
-   });
-   let confirmSearchDoctor = new Button({
-     width:130,
-     height:60,
-     right:10,
-     bottom:10,
-     text:'CONFIRM',
-     background:appBasicsInformations.color.color1,
-     cornerRadius:4
-   });
-    popover.contentView.append(composite);
-    popover.contentView.append(confirmSearchDoctor);
-    popover.open();
-  });
+        let popover = new Popover();
+        const composite = new Composite({
+          top:20,
+          left:0,
+          right:0,
+          height:60,
+          background:appBasicsInformations.color.color2,
+          elevation:6
+        });
+        let searchDoctor = require('./searchDoctor.js')();
+        popover.contentView.append(searchDoctor);
+        const leftArrow = new ImageView({
+         image:'src/icons/left-arrow.png',
+         top:20,
+         left:10,
+         height:25,
+         width:50
+       }).appendTo(composite).on('tap',()=>{
+         popover.close();
+       });
+       let confirmSearchDoctor = new Button({
+         width:130,
+         height:60,
+         right:10,
+         bottom:10,
+         text:'CONFIRM',
+         background:appBasicsInformations.color.color1,
+         cornerRadius:4
+       });
+        popover.contentView.append(composite);
+        popover.contentView.append(confirmSearchDoctor);
+        popover.open();
+      });
   const myFunds = new Button({
     right:0,
     left:0,
@@ -143,7 +142,40 @@ exports.create = ()=>{
     text:language.userPage.menuPrincipal[4],
     background:appBasicsInformations.color.color1,
     cornerRadius:4
-  }).appendTo(menuComposite);
+  }).appendTo(menuComposite).on('tap',()=>{
+      let popover = new Popover();
+      const composite = new Composite({
+        top:20,
+        left:0,
+        right:0,
+        height:60,
+        background:appBasicsInformations.color.color2,
+        elevation:6
+      });
+      let addFamilyMember = require('./addFamilyMember.js')();
+      popover.contentView.append(addFamilyMember);
+      const leftArrow = new ImageView({
+       image:'src/icons/left-arrow.png',
+       top:20,
+       left:10,
+       height:25,
+       width:50
+     }).appendTo(composite).on('tap',()=>{
+       popover.close();
+     });
+     let confirmAddFamilyMember = new Button({
+       width:130,
+       height:60,
+       right:10,
+       bottom:10,
+       text:'CONFIRM',
+       background:appBasicsInformations.color.color1,
+       cornerRadius:4
+     });
+      popover.contentView.append(composite);
+      popover.contentView.append(confirmAddFamilyMember);
+      popover.open();
+  });
   /*const topSearchBar = new Composite({
     height:50,
     left:0,
@@ -181,12 +213,12 @@ exports.create = ()=>{
   right:100,
   height:25,
   width:30
-}).appendTo(bottomMenu).on("tap",()=>{console.log('search');
-  let searchAction = new SearchAction({title: 'Search', image: 'src/icons/home-icon-silhouette.png'})
-  .onInput(event => items.filter(proposal => proposal.indexOf(event.query) !== -1))
-  .onAccept(event => console.log(`Showing content for ${event.text}`))
-  .appendTo(topSearchBar);
-  searchAction.open();
+}).appendTo(bottomMenu).on("tap",()=>{
+  const items = ['apple', 'banana', 'cherry'];
+  new SearchAction({title: 'Search',
+   image: 'src/icons/magnifier.png',
+ text:'Recherche...'}).onInput(event => items.filter(proposal => proposal.indexOf(event.query) !== -1))
+  .onAccept(event => console.log(`Showing content for ${event.text}`)).appendTo(executeNavigationView);
 });
 const searchText = new TextView({
   top:30,
