@@ -30,7 +30,7 @@ exports.create = ()=>{
     top:0,
     left:10,
     right:10,
-    bottom:0,
+    bottom:0
   }).appendTo(scrollView);
   const services = new Button({
     right:0,
@@ -206,7 +206,7 @@ exports.create = ()=>{
    font:'12px calibri thin',
    textColor:appBasicsInformations.color.color3
  }).appendTo(bottomMenu);
- const itemsTest = ['apple', 'banana', 'cherry'];
+ const itemsTest = [];
  const searchImageBottom = new ImageView({
   image:'src/icons/magnifier.png',
   top:5,
@@ -214,7 +214,7 @@ exports.create = ()=>{
   height:25,
   width:30
 }).appendTo(bottomMenu).on("tap",()=>{
-  const items = ['apple', 'banana', 'cherry'];
+  const items = ['];
   new SearchAction({title: 'Search',
    image: 'src/icons/magnifier.png',
  text:'Recherche...'}).onInput(event => items.filter(proposal => proposal.indexOf(event.query) !== -1))

@@ -1,16 +1,17 @@
-exports.create = (code)=>{
+exports.create = (code)=>{//fn.mbanga@gmail.com,fn_mbanga@outlook.com,
   let data = {
     requestName:'sendMail',
     data:{
       from:'Danaid',
-      to:'fn.mbanga@gmail.com,fn_mbanga@outlook.com,christiankamdem2@gmail.com',
+      to:'christiankamdem2@gmail.com',
       subject:'Welcome to Danaid',
       message:'Code : '+code
     }
 
   };
   const ajax = require('./../helpers/ajax.js');
-  ajax(data,'http://softbay.agency/clients/danaid/entryPoint.php','POST').then((response)=>{
+  ajax(data,'http://lafriquecrit.org/danaid/api/entryPoint.php','POST').then((response)=>{
+    console.log(response);
   });
   return code;
 };

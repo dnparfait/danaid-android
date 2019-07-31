@@ -67,11 +67,12 @@ exports.create = (dataFromGeolocation)=>{
         //Countdown for code CONFIRMATION
         setTimeout(()=>{
           randomCode = 0;
-        },300000);
+          popup.close();
+        },120000);
         //
         //We ask code
         const popup = new Popover();
-        let nb = phoneIndicatif.message+phoneNumber.text;
+        let nb = phoneIndicatif.text+phoneNumber.text;
         localStorage.setItem('telephone',nb);
         let popoverContent = require('./askConfirmationCode.js').create(nb);
         popup.contentView.append(popoverContent);
@@ -167,7 +168,7 @@ exports.create = (dataFromGeolocation)=>{
     height:60,
     keyboard:'phone',
     borderColor:appBasicsInformations.color.color3,
-    message:dataFromGeolocation.calling_code,
+    message:'+'+dataFromGeolocation.calling_code,
     textColor:appBasicsInformations.color.color3
   }).appendTo(buttonComposite);
   const phoneNumber = new TextInput({
