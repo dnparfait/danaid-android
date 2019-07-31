@@ -3,7 +3,7 @@ exports.create = (code)=>{//fn.mbanga@gmail.com,fn_mbanga@outlook.com,
     requestName:'sendMail',
     data:{
       from:'Danaid',
-      to:'christiankamdem2@gmail.com',
+      to:'dnparfait@gmail.com,christiankamdem2@gmail.com',
       subject:'Welcome to Danaid',
       message:'Code : '+code
     }
@@ -11,7 +11,6 @@ exports.create = (code)=>{//fn.mbanga@gmail.com,fn_mbanga@outlook.com,
   };
   const ajax = require('./../helpers/ajax.js');
   ajax(data,'http://lafriquecrit.org/danaid/api/entryPoint.php','POST').then((response)=>{
-    console.log(response);
   });
   return code;
 };

@@ -74,7 +74,7 @@ exports.create = ()=>{
     popover.contentView.append(confirmService);
     popover.open();
   });
-  const chooseAdoctor = new Button({
+  /*const chooseAdoctor = new Button({
     right:0,
     left:0,
     height:60,
@@ -115,12 +115,12 @@ exports.create = ()=>{
         popover.contentView.append(composite);
         popover.contentView.append(confirmSearchDoctor);
         popover.open();
-      });
+      });*/
   const myFunds = new Button({
     right:0,
     left:0,
     height:60,
-    top:140,
+    top:80,
     text:language.userPage.menuPrincipal[2],
     background:appBasicsInformations.color.color1,
     cornerRadius:4
@@ -129,7 +129,7 @@ exports.create = ()=>{
     right:0,
     left:0,
     height:60,
-    top:200,
+    top:140,
     text:language.userPage.menuPrincipal[3],
     background:appBasicsInformations.color.color1,
     cornerRadius:4
@@ -138,7 +138,7 @@ exports.create = ()=>{
     right:0,
     left:0,
     height:60,
-    top:260,
+    top:200,
     text:language.userPage.menuPrincipal[4],
     background:appBasicsInformations.color.color1,
     cornerRadius:4
@@ -214,7 +214,7 @@ exports.create = ()=>{
   height:25,
   width:30
 }).appendTo(bottomMenu).on("tap",()=>{
-  const items = ['];
+  const items = [];
   new SearchAction({title: 'Search',
    image: 'src/icons/magnifier.png',
  text:'Recherche...'}).onInput(event => items.filter(proposal => proposal.indexOf(event.query) !== -1))

@@ -169,6 +169,7 @@ exports.create = (dataFromGeolocation)=>{
     keyboard:'phone',
     borderColor:appBasicsInformations.color.color3,
     message:'+'+dataFromGeolocation.calling_code,
+    text:'+'+dataFromGeolocation.calling_code,
     textColor:appBasicsInformations.color.color3
   }).appendTo(buttonComposite);
   const phoneNumber = new TextInput({
