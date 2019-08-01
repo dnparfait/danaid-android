@@ -1,5 +1,5 @@
 exports.create = ()=>{
-  const {Page,SearchAction,NavigationView,RadioButton,drawer,AlertDialog,Switch,Popover,statusBar,ImageView,TextView,Composite,Button,ScrollView,TextInput} = require('tabris');
+  const {Page,DateDialog,SearchAction,NavigationView,RadioButton,drawer,AlertDialog,Switch,Popover,statusBar,ImageView,TextView,Composite,Button,ScrollView,TextInput} = require('tabris');
   const appBasicsInformations = require('./../helpers/appBasicsInformations.js');
   let language = null;
   if(localStorage.getItem('language') === 'en'){
@@ -70,6 +70,13 @@ exports.create = ()=>{
      background:appBasicsInformations.color.color1,
      cornerRadius:4
    });
+   const titlePopver = new TextView({
+     centerY:0,
+     left:70,
+     textColor:appBasicsInformations.color.color1,
+     font:'18px calibri bold',
+     text:'CHOISIR UN SERVICE'
+   }).appendTo(composite);
     popover.contentView.append(composite);
     popover.contentView.append(confirmService);
     popover.open();
@@ -163,12 +170,19 @@ exports.create = ()=>{
      }).appendTo(composite).on('tap',()=>{
        popover.close();
      });
+     const titlePopver = new TextView({
+       centerY:0,
+       left:70,
+       textColor:appBasicsInformations.color.color1,
+       font:'18px calibri bold',
+       text:'NOUVEAU MEMBRE'
+     }).appendTo(composite);
      let confirmAddFamilyMember = new Button({
        width:130,
        height:60,
        right:10,
        bottom:10,
-       text:'CONFIRM',
+       text:'AJOUTER',
        background:appBasicsInformations.color.color1,
        cornerRadius:4
      });
