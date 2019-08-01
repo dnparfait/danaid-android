@@ -14,7 +14,8 @@ module.exports = {
     },
     userPage:{
       menuPrincipal:['SERVICES','CHOISIR UN MEDECIN',
-    'MES COTISATIONS','GERER LES SOINS DE MA FAMILLE','AJOUTER UN MEMBRE DE MA FAMILLE']
+    'COTISATIONS','FAMILLE','AJOUTER UN MEMBRE'],
+    bottomBarre:['Accueil','Carte','Loupe','Infos']
     },
     askConfirmationCode:{
       title:'CODE DE CONFIRMATION',
@@ -58,11 +59,12 @@ module.exports = {
       telephoneMessage:'Phone number',
       buttonConfirm:'NEXT',
       alertMessageEmptyField:'Please enter your telephone number!',
-      alertMessageInvalidPhoneNumber:'Invalid phone number!'
+      alertMessageInvalidPhoneNumber:'Invalid phone number!',
+      bottomBarre:['Home','Card','Search','Setting']
     },
     userPage:{
       menuPrincipal:['SERVICES','CHOOSE A DOCTOR',
-    'MY CONTRIBUTIONS','MANAGE MY FAMILY S CARE','ADD A FAMILY MEMBER']
+    'CONTRIBUTIONS','FAMILY','ADD A MEMBER']
     },
     askConfirmationCode:{
       title:'CONFIRMATION CODE',

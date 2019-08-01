@@ -25,7 +25,7 @@ exports.create = ()=>{
     right:0,
     bottom:50
   }).appendTo(userPage);
-  const menuComposite = new Composite({
+  const menuComposite = new ScrollView({
     id:'list_menu',
     top:0,
     left:10,
@@ -33,9 +33,9 @@ exports.create = ()=>{
     bottom:0
   }).appendTo(scrollView);
   const services = new Button({
-    right:0,
+    right:175,
     left:0,
-    height:60,
+    height:200,
     top:20,
     text:language.userPage.menuPrincipal[0],
     background:appBasicsInformations.color.color1,
@@ -75,7 +75,7 @@ exports.create = ()=>{
      left:70,
      textColor:appBasicsInformations.color.color1,
      font:'18px calibri bold',
-     text:'CHOISIR UN SERVICE'
+     text:'SERVICE'
    }).appendTo(composite);
     popover.contentView.append(composite);
     popover.contentView.append(confirmService);
@@ -125,27 +125,27 @@ exports.create = ()=>{
       });*/
   const myFunds = new Button({
     right:0,
-    left:0,
-    height:60,
-    top:80,
+    left:175,
+    height:200,
+    top:20,
     text:language.userPage.menuPrincipal[2],
     background:appBasicsInformations.color.color1,
     cornerRadius:4
   }).appendTo(menuComposite);
   const manageMyFamily = new Button({
-    right:0,
+    right:175,
     left:0,
-    height:60,
-    top:140,
+    height:200,
+    top:220,
     text:language.userPage.menuPrincipal[3],
     background:appBasicsInformations.color.color1,
     cornerRadius:4
   }).appendTo(menuComposite);
   const addMember = new Button({
     right:0,
-    left:0,
-    height:60,
-    top:200,
+    left:175,
+    height:200,
+    top:220,
     text:language.userPage.menuPrincipal[4],
     background:appBasicsInformations.color.color1,
     cornerRadius:4
@@ -207,7 +207,7 @@ exports.create = ()=>{
     elevation:10
   }).appendTo(userPage);
   const homeImageBottom = new ImageView({
-   image:'src/icons/home-icon-silhouette.png',
+   image:'src/icons/home.png',
    top:5,
    left:10,
    height:25,
@@ -216,15 +216,15 @@ exports.create = ()=>{
  const homeText = new TextView({
    top:30,
    left:10,
-   text:'Home',
+   text:language.userPage.bottomBarre[0],
    font:'12px calibri thin',
    textColor:appBasicsInformations.color.color3
  }).appendTo(bottomMenu);
  const itemsTest = [];
  const searchImageBottom = new ImageView({
-  image:'src/icons/magnifier.png',
+  image:'src/icons/search.png',
   top:5,
-  right:100,
+  right:105,
   height:25,
   width:30
 }).appendTo(bottomMenu).on("tap",()=>{
@@ -237,26 +237,56 @@ exports.create = ()=>{
 const searchText = new TextView({
   top:30,
   right:100,
-  text:'Search',
+  text:language.userPage.bottomBarre[2],
   font:'12px calibri thin',
   textColor:appBasicsInformations.color.color3
 }).appendTo(bottomMenu);
-const mailImageBottom = new ImageView({
- image:'src/icons/close-envelope.png',
+const cardImageBottom = new ImageView({
+ image:'src/icons/card.png',
  top:5,
  right:197,
  height:25,
  width:30
-}).appendTo(bottomMenu);
-const mailText = new TextView({
+}).appendTo(bottomMenu).on('tap',()=>{
+  let popover = new Popover();
+  const composite = new Composite({
+    top:20,
+    left:0,
+    right:0,
+    height:60,
+    background:appBasicsInformations.color.color2,
+    elevation:6
+  });
+  let servicesPage = require('./card.js')();
+  popover.contentView.append(servicesPage);
+  const leftArrow = new ImageView({
+   image:'src/icons/left-arrow.png',
+   top:20,
+   left:10,
+   height:25,
+   width:50
+ }).appendTo(composite).on('tap',()=>{
+   popover.close();
+ });
+ const titlePopver = new TextView({
+   centerY:0,
+   left:70,
+   textColor:appBasicsInformations.color.color1,
+   font:'18px calibri bold',
+   text:'CARD'
+ }).appendTo(composite);
+  popover.contentView.append(composite);
+  popover.open();
+});
+const cardText = new TextView({
   top:30,
   right:200,
-  text:'Mail',
+  text:language.userPage.bottomBarre[1],
   font:'12px calibri thin',
   textColor:appBasicsInformations.color.color3
 }).appendTo(bottomMenu);
  const settingImageBottom = new ImageView({
-  image:'src/icons/settings-work-tool.png',
+  image:'src/icons/controls.png',
   top:5,
   right:15,
   height:25,
@@ -266,8 +296,8 @@ const mailText = new TextView({
 });
 const settingText = new TextView({
   top:30,
-  right:10,
-  text:'Setting',
+  right:15,
+  text:language.userPage.bottomBarre[3],
   font:'12px calibri thin',
   textColor:appBasicsInformations.color.color3
 }).appendTo(bottomMenu);
