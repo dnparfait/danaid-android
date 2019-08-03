@@ -16,7 +16,7 @@ exports.create = ()=>{
   const executeNavigationView = require("../helpers/navigationAnimation.js")(createnavigationView,false);
           // executeNavigationView.toolbarVisible = false;
         executeNavigationView.on('disappear',function(){this.dispose();});
-  const userPage = new Page({
+  const userPage = new Page({title:language.userPage.title,
     background:appBasicsInformations.color.color2
   }).appendTo(executeNavigationView);
   const scrollView = new ScrollView({
@@ -32,12 +32,11 @@ exports.create = ()=>{
     right:10,
     bottom:0
   }).appendTo(scrollView);
-  const services = new Button({
+  const services = new Composite({
     right:175,
     left:0,
     height:200,
     top:20,
-    text:language.userPage.menuPrincipal[0],
     background:appBasicsInformations.color.color1,
     cornerRadius:4
   }).appendTo(menuComposite).on('tap',()=>{
@@ -81,6 +80,20 @@ exports.create = ()=>{
     popover.contentView.append(confirmService);
     popover.open();
   });
+  const serviceIcon = new ImageView({
+   image:'src/icons/delivery.png',
+   centerX:0,
+   centerY:0,
+   height:80,
+   width:80
+ }).appendTo(services);
+ const serviceText = new TextView({
+   bottom:20,
+   centerX:0,
+   text:language.userPage.menuPrincipal[0],
+   font:'12px calibri thin',
+   textColor:appBasicsInformations.color.color2
+ }).appendTo(services);
   /*const chooseAdoctor = new Button({
     right:0,
     left:0,
@@ -123,41 +136,72 @@ exports.create = ()=>{
         popover.contentView.append(confirmSearchDoctor);
         popover.open();
       });*/
-  const myFunds = new Button({
+  const myFunds = new Composite({
     right:0,
     left:175,
     height:200,
     top:20,
-    text:language.userPage.menuPrincipal[2],
     background:appBasicsInformations.color.color1,
     cornerRadius:4
   }).appendTo(menuComposite);
-  const manageMyFamily = new Button({
+  const myFundsIcon = new ImageView({
+   image:'src/icons/piggy-bank-with-dollar-coin.png',
+   centerX:0,
+   centerY:0,
+   height:80,
+   width:80
+ }).appendTo(myFunds);
+ const myFundsText = new TextView({
+   bottom:20,
+   centerX:0,
+   text:language.userPage.menuPrincipal[2],
+   font:'12px calibri thin',
+   textColor:appBasicsInformations.color.color2
+ }).appendTo(myFunds);
+  const manageMyFamily = new Composite({
     right:175,
     left:0,
     height:200,
-    top:220,
-    text:language.userPage.menuPrincipal[3],
+    top:230,
     background:appBasicsInformations.color.color1,
     cornerRadius:4
   }).appendTo(menuComposite);
-  const addMember = new Button({
+  const myFamilyIcon = new ImageView({
+   image:'src/icons/family.png',
+   centerX:0,
+   centerY:0,
+   height:80,
+   width:80
+ }).appendTo(manageMyFamily);
+ const myFamilyText = new TextView({
+   bottom:20,
+   centerX:0,
+   text:language.userPage.menuPrincipal[3],
+   font:'12px calibri thin',
+   textColor:appBasicsInformations.color.color2
+ }).appendTo(manageMyFamily);
+  const careRecord = new Composite({
     right:0,
     left:175,
     height:200,
-    top:220,
-    text:language.userPage.menuPrincipal[4],
+    top:230,
     background:appBasicsInformations.color.color1,
     cornerRadius:4
   }).appendTo(menuComposite);
-  /*const topSearchBar = new Composite({
-    height:50,
-    left:0,
-    right:0,
-    top:0,
-    background:'#e4e1e3',
-    elevation:10
-  }).appendTo(userPage);*/
+  const careRecordIcon = new ImageView({
+   image:'src/icons/medical-prescription.png',
+   centerX:0,
+   centerY:0,
+   height:80,
+   width:80
+ }).appendTo(careRecord);
+ const careRecordText = new TextView({
+   bottom:20,
+   centerX:0,
+   text:language.userPage.menuPrincipal[4],
+   font:'12px calibri thin',
+   textColor:appBasicsInformations.color.color2
+ }).appendTo(careRecord);
   const bottomMenu = new Composite({
     height:50,
     left:0,
@@ -182,8 +226,8 @@ exports.create = ()=>{
      background:appBasicsInformations.color.color2,
      elevation:6
    });
-   let servicesPage = require('./myDoctor.js')();
-   popover.contentView.append(servicesPage);
+   let doctorPage = require('./myDoctor.js')();
+   popover.contentView.append(doctorPage);
    const leftArrow = new ImageView({
     image:'src/icons/left-arrow.png',
     top:20,

@@ -12,9 +12,11 @@ module.exports = {
       alertMessageEmptyField:'Veuillez renseigner votre numéro de téléphone!',
       alertMessageInvalidPhoneNumber:'Numéro de téléphone invalide!'
     },
+    drawer:['Langue','Informations du profile','Danaid App','A propos de nous'],
     userPage:{
+      title:'Panel utilisateur',
       menuPrincipal:['SERVICES','CHOISIR UN MEDECIN',
-    'COTISATIONS','FAMILLE','AJOUTER UN MEMBRE'],
+    'COTISATIONS','MA FAMILLE','FICHE DE SOINS'],
     bottomBarre:['Médecin','Carte','Utilisateur','Infos']
     },
     askConfirmationCode:{
@@ -62,9 +64,11 @@ module.exports = {
       alertMessageInvalidPhoneNumber:'Invalid phone number!',
       bottomBarre:['Doctor','Card','User','Setting']
     },
+    drawer:['Language','Profile informations','Danaid App','About us'],
     userPage:{
+      title:'User panel',
       menuPrincipal:['SERVICES','CHOOSE A DOCTOR',
-    'CONTRIBUTIONS','FAMILY','ADD A MEMBER']
+    'CONTRIBUTIONS','MY FAMILY','CARE RECORD']
     },
     askConfirmationCode:{
       title:'CONFIRMATION CODE',

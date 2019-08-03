@@ -54,7 +54,7 @@ module.exports = ()=>{
    left:10,
    textColor:appBasicsInformations.color.color1,
    font:'18px calibri bold',
-   text:'Spciality'
+   text:'Speciality'
  }).appendTo(compositeMyDoctor);
  const speciality = new TextView({
    top:330,
@@ -76,6 +76,15 @@ module.exports = ()=>{
    textColor:appBasicsInformations.color.color3,
    font:'16px calibri bold',
    text:'West'
+ }).appendTo(compositeMyDoctor);
+ const changeDoctorButton = new Button({
+   right:0,
+   height:60,
+   bottom:10,
+   text:'Change the doctor',
+   background:appBasicsInformations.color.color2,
+   textColor:appBasicsInformations.color.color1,
+   cornerRadius:4
  }).appendTo(compositeMyDoctor);
   return compositeMyDoctor;
 };

@@ -29,7 +29,7 @@ module.exports = ()=>{
     text:'Hello'+', '+localStorage.getItem('surname'),
     textColor:appBasicsInformations.color.color3
   }).appendTo(wrapper);
-  const items = ['Langue', 'Profile informations','App informations','A propos'];
+  const items = language.drawer;
   const profileInfos = new CollectionView({
     left: 20, top: 250, width:200, height: 300,
     itemCount: items.length,
