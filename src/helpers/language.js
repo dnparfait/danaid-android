@@ -15,7 +15,7 @@ module.exports = {
     userPage:{
       menuPrincipal:['SERVICES','CHOISIR UN MEDECIN',
     'COTISATIONS','FAMILLE','AJOUTER UN MEMBRE'],
-    bottomBarre:['Accueil','Carte','Loupe','Infos']
+    bottomBarre:['Médecin','Carte','Utilisateur','Infos']
     },
     askConfirmationCode:{
       title:'CODE DE CONFIRMATION',
@@ -60,7 +60,7 @@ module.exports = {
       buttonConfirm:'NEXT',
       alertMessageEmptyField:'Please enter your telephone number!',
       alertMessageInvalidPhoneNumber:'Invalid phone number!',
-      bottomBarre:['Home','Card','Search','Setting']
+      bottomBarre:['Doctor','Card','User','Setting']
     },
     userPage:{
       menuPrincipal:['SERVICES','CHOOSE A DOCTOR',
