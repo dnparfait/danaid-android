@@ -14,77 +14,113 @@ module.exports = ()=>{
     right:10,
     elevation:6
   });
-  const doctorImage = new ImageView({
-   image:'src/icons/doctorGrey.png',
+  const profileImageWrapper = new Composite({
+    top:5,
+    height:280,
+    left:10,
+    right:10,
+    cornerRadius:4,
+    elevation:6,
+    background:appBasicsInformations.color.color2
+  }).appendTo(compositeMyDoctor);
+  const profileInfosWrapper = new Composite({
+    top:310,
+    height:200,
+    left:10,
+    right:10,
+    cornerRadius:4,
+    elevation:6,
+    background:appBasicsInformations.color.color2
+  }).appendTo(compositeMyDoctor);
+  const myProfileImage = new ImageView({
+    centerX:0,
+    centerY:0,
+   image:'src/icons/user-silhouette.png',
+   scaleMode:'fit'
+ }).appendTo(profileImageWrapper);
+ const profileIcon = new ImageView({
+  image:'src/icons/add-contact.png',
+  top:10,
+  left:10,
+  height:25,
+  width:30
+}).appendTo(profileInfosWrapper);
+ const fullnameTitle = new TextView({
    top:5,
-   left:10,
-   right:10,
-   height:200
- }).appendTo(compositeMyDoctor);
- const nameTitle = new TextView({
-   top:210,
-   left:10,
+   left:60,
    textColor:appBasicsInformations.color.color1,
-   font:'18px calibri bold',
-   text:'Name'
- }).appendTo(compositeMyDoctor);
- const name = new TextView({
-   top:230,
-   left:10,
+   font:'16px calibri bold',
+   text:'Name & Surname'
+ }).appendTo(profileInfosWrapper);
+ const fullname = new TextView({
+   top:25,
+   left:60,
    textColor:appBasicsInformations.color.color3,
    font:'16px calibri bold',
    text:'Christian Kamdem'
- }).appendTo(compositeMyDoctor);
- const surnameTitle = new TextView({
-   top:260,
-   left:10,
-   textColor:appBasicsInformations.color.color1,
-   font:'18px calibri bold',
-   text:'Surname'
- }).appendTo(compositeMyDoctor);
- const surname = new TextView({
-   top:280,
-   left:10,
-   textColor:appBasicsInformations.color.color3,
-   font:'16px calibri bold',
-   text:'Christian Kamdem'
- }).appendTo(compositeMyDoctor);
+ }).appendTo(profileInfosWrapper);
+ const specialityIcon = new ImageView({
+  image:'src/icons/card.png',
+  top:50,
+  left:10,
+  height:25,
+  width:30
+}).appendTo(profileInfosWrapper);
  const specialityTitle = new TextView({
-   top:310,
-   left:10,
+   top:45,
+   left:60,
    textColor:appBasicsInformations.color.color1,
-   font:'18px calibri bold',
+   font:'16px calibri bold',
    text:'Speciality'
- }).appendTo(compositeMyDoctor);
+ }).appendTo(profileInfosWrapper);
  const speciality = new TextView({
-   top:330,
-   left:10,
+   top:65,
+   left:60,
    textColor:appBasicsInformations.color.color3,
    font:'16px calibri bold',
    text:'Chirugien'
- }).appendTo(compositeMyDoctor);
- const regionTitle = new TextView({
-   top:360,
-   left:10,
+ }).appendTo(profileInfosWrapper);
+ const telIcon = new ImageView({
+  image:'src/icons/phone-call.png',
+  top:90,
+  left:10,
+  height:25,
+  width:30
+}).appendTo(profileInfosWrapper);
+ const telTitle = new TextView({
+   top:85,
+   left:60,
    textColor:appBasicsInformations.color.color1,
-   font:'18px calibri bold',
-   text:'Region'
- }).appendTo(compositeMyDoctor);
- const region = new TextView({
-   top:380,
-   left:10,
+   font:'16px calibri bold',
+   text:'Telephone'
+ }).appendTo(profileInfosWrapper);
+ const tel = new TextView({
+   top:105,
+   left:60,
    textColor:appBasicsInformations.color.color3,
    font:'16px calibri bold',
-   text:'West'
- }).appendTo(compositeMyDoctor);
- const changeDoctorButton = new Button({
-   right:0,
-   height:60,
-   bottom:10,
-   text:'Change the doctor',
-   background:appBasicsInformations.color.color2,
+   text:'237698075801'
+ }).appendTo(profileInfosWrapper);
+ const locationIcon = new ImageView({
+  image:'src/icons/placeholder.png',
+  top:140,
+  left:10,
+  height:25,
+  width:30
+}).appendTo(profileInfosWrapper);
+ const locationTitle = new TextView({
+   top:135,
+   left:60,
    textColor:appBasicsInformations.color.color1,
-   cornerRadius:4
- }).appendTo(compositeMyDoctor);
+   font:'16px calibri bold',
+   text:'Location'
+ }).appendTo(profileInfosWrapper);
+ const location = new TextView({
+   top:155,
+   left:60,
+   textColor:appBasicsInformations.color.color3,
+   font:'16px calibri bold',
+   text:'Yaounde'
+ }).appendTo(profileInfosWrapper);
   return compositeMyDoctor;
 };
