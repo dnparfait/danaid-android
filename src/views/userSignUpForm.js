@@ -201,6 +201,7 @@ exports.create = (id)=>{
           return matricule;
         }
         dataToSend.matricule = getMatricule(e.date);
+        localStorage.setItem('matricule',dataToSend.matricule);
       }).open();
   });
   const formDateOfBith = new TextInput({

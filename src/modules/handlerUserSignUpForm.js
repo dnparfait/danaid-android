@@ -23,7 +23,7 @@ exports.create = (data)=>{
           resolve({error:true,message:language.userSignUpForm.errorSendingForm.date});
         }else{
           localStorage.setItem('name',data.name);
-          localStorage.setItem('surname',data.surname);console.log(data);
+          localStorage.setItem('surname',data.surname);
           resolve({error:false});
         }
       }

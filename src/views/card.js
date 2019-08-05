@@ -57,7 +57,7 @@ module.exports = ()=>{
    left:60,
    textColor:appBasicsInformations.color.color3,
    font:'16px calibri bold',
-   text:'Christian Kamdem'
+   text:localStorage.getItem('name') + ' ' + localStorage.getItem('surname')
  }).appendTo(profileInfosWrapper);
  const serviceIcon = new ImageView({
   image:'src/icons/24-hours.png',
@@ -99,7 +99,7 @@ module.exports = ()=>{
    left:60,
    textColor:appBasicsInformations.color.color3,
    font:'16px calibri bold',
-   text:'237698075801'
+   text:localStorage.getItem('telephone')
  }).appendTo(profileInfosWrapper);
  const matriculeIcon = new ImageView({
   image:'src/icons/terminal.png',
@@ -120,7 +120,7 @@ module.exports = ()=>{
    left:60,
    textColor:appBasicsInformations.color.color3,
    font:'16px calibri bold',
-   text:'DFRFR145'
+   text:localStorage.getItem('matricule')
  }).appendTo(profileInfosWrapper);
   return compositeCard;
 };
