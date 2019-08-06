@@ -1,5 +1,5 @@
-exports.create = ()=>{
-  const {Composite,TextView,TextInput,Button} = require('tabris');
+exports.create = (dataToSend)=>{
+  const {ScrollView,TextView,TextInput,Button} = require('tabris');
   let language = null;
   if(localStorage.getItem('language') === 'en'){
     language = require('./../helpers/language.js').en;
@@ -7,7 +7,7 @@ exports.create = ()=>{
     language = require('./../helpers/language.js').fr;
   };
   const appBasicsInformations = require('./../helpers/appBasicsInformations.js');
-  const conteneur = new Composite({
+  const conteneur = new ScrollView({
     left:20,
     right:20,
     centerY:0,

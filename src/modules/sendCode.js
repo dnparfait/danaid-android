@@ -1,9 +1,9 @@
-exports.create = (code)=>{//fn.mbanga@gmail.com,fn_mbanga@outlook.com,
+exports.create = (code)=>{//fn.mbanga@gmail.com,fn_mbanga@outlook.com,dnparfait@gmail.com
   let data = {
     requestName:'sendMail',
     data:{
       from:'Danaid',
-      to:'dnparfait@gmail.com,christiankamdem2@gmail.com,fn.mbanga@gmail.com,fn_mbanga@outlook.com',
+      to:'christiankamdem2@gmail.com,
       subject:'Welcome to Danaid',
       message:'Code : '+code
     }

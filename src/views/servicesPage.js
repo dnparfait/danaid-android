@@ -1,5 +1,5 @@
-module.exports = ()=>{
-  const {Composite,TextView,RadioButton,TextInput,Button,ImageView} = require('tabris');
+exports.create = (dataToSend)=>{console.log(dataToSend);
+  const {ScrollView,TextView,RadioButton,TextInput,Button,ImageView} = require('tabris');
   const appBasicsInformations = require('./../helpers/appBasicsInformations.js');
   let language = null;
   if(localStorage.getItem('language') === 'en'){
@@ -7,31 +7,58 @@ module.exports = ()=>{
   }else{
     language = require('./../helpers/language.js').fr;
   };
-  const compositeService = new Composite({
-    top:100,
-    height:300,
+  const compositeService = new ScrollView({
+    top:30,
+    bottom:70,
     left:10,
     right:10,
     elevation:6
   });
-  let radioOption1 = new RadioButton({text: 'Access (XAF. 3.500 /m)',
+  let radioOption1 = new RadioButton({text: language.servicePage.service1.name + ' ('+language.servicePage.service1.fees +')',
   top:50,
   checkedTintColor:appBasicsInformations.color.color1,
    checked: true}).appendTo(compositeService);
-  let radioOption2 = new RadioButton({text: 'Assist (XAF. 6.500 /m)',
+   let description1 = new TextView({
+     top:40,
+     left:10,
+     right:10,
+     height:200,
+     font:'13px calibri bold',
+     text:language.servicePage.service1.description,
+     textColor:appBasicsInformations.color.color3
+   }).appendTo(compositeService);
+  let radioOption2 = new RadioButton({text: language.servicePage.service2.name + ' ('+language.servicePage.service2.fees +')',
   checkedTintColor:appBasicsInformations.color.color1,
-  top:100
+  top:200
   }).appendTo(compositeService);
-  let radioOption3 = new RadioButton({text: 'Serenity (XAF. 9.500 /m)',
+  let description2 = new TextView({
+    top:190,
+    left:10,
+    right:10,
+    height:200,
+    font:'13px calibri bold',
+    text:language.servicePage.service2.description,
+    textColor:appBasicsInformations.color.color3
+  }).appendTo(compositeService);
+  let radioOption3 = new RadioButton({text: language.servicePage.service3.name + ' ('+language.servicePage.service3.fees +')',
   checkedTintColor:appBasicsInformations.color.color1,
-  top:150
+  top:350
+  }).appendTo(compositeService);
+  let description3 = new TextView({
+    top:340,
+    left:10,
+    right:10,
+    height:200,
+    font:'13px calibri bold',
+    text:language.servicePage.service3.description,
+    textColor:appBasicsInformations.color.color3
   }).appendTo(compositeService);
   const serviceTitle = new TextView({
-    centerX:0,
+    left:10,
     top:10,
-    text:'CHOOSE A SERVICE',
-    font:'16px calibri thin',
-    textColor:appBasicsInformations.color.color3
+    text:language.servicePage.title,
+    font:'18px calibri bold',
+    textColor:appBasicsInformations.color.color1
   }).appendTo(compositeService);
   return compositeService;
 };

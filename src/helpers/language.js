@@ -45,6 +45,28 @@ module.exports = {
       cancelButton:'Fermer',
       doneButton:'Valider'
     },
+    servicePage:{
+                title:'CHOISISSEZ VOTRE SERVICE',
+                buttonNext:'SUIVANT',
+                service1:{
+                  name:'Accès',
+                  fees:'XAF.3500/m',
+                  description:`PROTECTION DE BASES
+Petit budget? l'offre "Accès" vous garanti un suivi personnalisé par le Médecin de Famille qui veille à optimiser la qualité et le coût des soins que vous recevez, avec une prise en charge à 70% et un plafond familial de 350.000 XAF par an.`
+          },
+                service2:{
+                  name:'Assist',
+                  fees:'XAF 6.500/m',
+                  description:`ALLER PLUS LOIN
+Vous désirez une couverture plus conséquente? Optez pour "Assist" et bénéficiez d'un suivi personnalisé par le Médecin de Famille qui veille à optimiser la qualité et le coût de vos soins; avec une prise en charge à 70% et un plafond familial de 650.000 XAF par an.`
+                },
+                service3:{
+                  name:'Sérénité',
+                  fees:'XAF 9.500/m',
+                  description:`POUR RASSURER
+Vous souhaitez une protection solide et durable pour votre famille. Abonnez vous à l'offre "Serene" et bénéficiez d'un suivi personnalisé par le Médecin de Famille qui veille à optimiser la qualité et le coût de vos soins; avec une prise en charge à 70% et un plafond familial de 1.000.000 XAF par an.`
+                }
+    },
     recommandationsBySms:{
       button:'Suivant/Envoyer',
       content:'Pouvez vous nous recommander deux autres personnes?'
@@ -95,6 +117,25 @@ module.exports = {
     takePhotoProfile:{
       cancelButton:'Cancel',
       doneButton:'Done'
+    },
+    servicePage:{
+      title:'CHOOSE A SERVICE',
+      buttonNext:'NEXT',
+                service1:{
+                  name:'Accès',
+                  fees:'XAF.3500/m',
+                  description:`BASE PROTECTION
+Low budget? the "Access" offer guarantees you a personalised follow-up by the Family Doctor who ensures that the quality and cost of the care you receive are optimised, with 70% coverage and a family ceiling of 350,000 XAF per year.`},
+                service2:{
+                  name:'Assist',
+                  fees:'XAF 6.500/m',
+                  description:`GO FURTHER
+Do you want more coverage? Opt for "Assist" and benefit from a personalized follow-up by the Family Doctor who ensures that the quality and cost of your care is optimized; with 70% coverage and a family maximum of 650,000 XAF per year.`},
+                service3:{
+                  name:'Sérénité',
+                  fees:'XAF 9.500/m',
+                  description:`TO REASSURE
+You want solid and lasting protection for your family. Subscribe to the "Serene" offer and benefit from a personalized follow-up by the Family Doctor who ensures that the quality and cost of your care is optimized; with a 70% coverage and a family maximum of 1,000,000 XAF per year.`}
     },
     recommandationsBySms:{
       button:'Skip/Validate',

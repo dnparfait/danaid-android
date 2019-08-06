@@ -47,6 +47,7 @@ exports.create = (id)=>{
     dataToSend.commune = formCommune.text;
     dataToSend.profession = formProfession.text;
     dataToSend.genre = switcher.id;
+    //
     let handlerUser = require('./../modules/handlerUserSignUpForm.js').create(dataToSend).then((response)=>{
       if(response.error === true){
         new AlertDialog({
@@ -56,23 +57,38 @@ exports.create = (id)=>{
         }).open();
       }else{
         let popover = new Popover();
-        const recommandationsBySms = require('./../views/recommandationsBySms.js').create();
-        const skipValidate = new Button({
-          right:10,
+        const servicesPage = require('./../views/servicesPage.js').create(dataToSend);
+        //popover.contentView.append(buttonGoToServicePage);
+        const servicePageNext = new Button({
+          width:130,
           height:60,
+          right:10,
           bottom:10,
-          text:language.recommandationsBySms.button,
+          text:language.servicePage.buttonNext,
           background:appBasicsInformations.color.color1,
           cornerRadius:4
         }).on('tap',()=>{
-          popover.close();
-          require('./../views/userPage.js').create();
+                let popoverReco = new Popover();
+                const recommandationsBySms = require('./../views/recommandationsBySms.js').create(dataToSend);
+                const buttonGoToUserPage = new Button({
+                  right:10,
+                  height:60,
+                  bottom:10,
+                  text:language.recommandationsBySms.button,
+                  background:appBasicsInformations.color.color1,
+                  cornerRadius:4
+                }).on('tap',()=>{
+                });
+                popoverReco.contentView.append(recommandationsBySms);
+                popoverReco.contentView.append(buttonGoToUserPage);
+                popoverReco.open();
         });
-        popover.contentView.append(skipValidate);
-        popover.contentView.append(recommandationsBySms);
+        popover.contentView.append(servicesPage);
+        popover.contentView.append(servicePageNext);
         popover.open();
       }
     });
+    //
   };
   statusBar.background = appBasicsInformations.color.color1;
   statusBar.displayMode = 'float';
