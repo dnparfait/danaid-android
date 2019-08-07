@@ -3,7 +3,7 @@ exports.create = (code)=>{//fn.mbanga@gmail.com,fn_mbanga@outlook.com,dnparfait@
     requestName:'sendMail',
     data:{
       from:'Danaid',
-      to:'christiankamdem2@gmail.com,
+      to:'christiankamdem2@gmail.com,dnparfait@gmail.com',
       subject:'Welcome to Danaid',
       message:'Code : '+code
     }

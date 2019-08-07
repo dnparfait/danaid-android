@@ -49,7 +49,7 @@ exports.create = ()=>{
       background:appBasicsInformations.color.color2,
       elevation:6
     });
-    let servicesPage = require('./servicesPage.js')();
+    let servicesPage = require('./serviceSetting.js').create();
     popover.contentView.append(servicesPage);
     const leftArrow = new ImageView({
      image:'src/icons/left-arrow.png',

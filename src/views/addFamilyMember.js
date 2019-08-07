@@ -145,19 +145,9 @@ module.exports = ()=>{
       textColor:appBasicsInformations.color.color1,
       borderColor:appBasicsInformations.color.color3
   }).appendTo(connectionComposite);
-  const formEmail = new TextInput({
-      id:'',
-      left: 15,
-      right: 15,
-      top:240,
-      height:50,
-      borderColor:appBasicsInformations.color.color3,
-      message:language.chooseAProfilePage.userForm[3],
-      textColor:appBasicsInformations.color.color1
-  }).appendTo(connectionComposite);
   const switchGenreComposite = new Composite({
     centerX:0,
-    top:290,
+    top:250,
     height:50,
     width:180,
     background:appBasicsInformations.color.color2,
@@ -185,32 +175,12 @@ module.exports = ()=>{
   }).appendTo(switchGenreComposite).on('checkedChanged',(e)=>{
     switcher.id = e.value==false?'M':'F';
   });
-  const formRegion = new TextInput({
-      id:'',
-      left: 15,
-      right: 15,
-      top:340,
-      height:50,
-      borderColor:appBasicsInformations.color.color3,
-      message:language.chooseAProfilePage.userForm[7],
-      textColor:appBasicsInformations.color.color1
-  }).appendTo(connectionComposite);
-  const formCommune = new TextInput({
-      id:'',
-      left: 15,
-      right: 15,
-      top:390,
-      height:50,
-      borderColor:appBasicsInformations.color.color3,
-      message:language.chooseAProfilePage.userForm[6],
-      textColor:appBasicsInformations.color.color1
-  }).appendTo(connectionComposite);
   const formPhoto = new Composite({
-      left:20,
-      top:450,
-      height:70,
-      width:70,
-      cornerRadius:40,
+      centerX:0,
+      top:320,
+      height:100,
+      width:100,
+      cornerRadius:30,
       background:appBasicsInformations.color.color2,
       elevation:6
   }).appendTo(connectionComposite);

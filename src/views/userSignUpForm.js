@@ -78,6 +78,18 @@ exports.create = (id)=>{
                   background:appBasicsInformations.color.color1,
                   cornerRadius:4
                 }).on('tap',()=>{
+                  localStorage.setItem('name',dataToSend.name);
+                  localStorage.setItem('surname',dataToSend.surname);
+                  //We send data to the server
+                  const registration = require('./../modules/registration.js').create(dataToSend);
+                  registration.then((response)=>{
+                    if(response.error == false){
+                      popoverReco.close();
+                      popover.close();
+                      dataToSend.serviceId = localStorage.getItem('serviceId');
+                      const userPage = require('./../views/userPage.js').create(dataToSend);
+                    }
+                  });
                 });
                 popoverReco.contentView.append(recommandationsBySms);
                 popoverReco.contentView.append(buttonGoToUserPage);

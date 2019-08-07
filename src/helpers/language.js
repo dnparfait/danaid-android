@@ -2,8 +2,8 @@ module.exports = {
   fr:{
     welcomePage:{
       welcomeMessage:`Enregistrez vous et votre famille et commencer à profiter d\'une prise en charge
-      à 70% de tous vos frais de consultation,soins médicaments,labo et hopitalisation dans tous les hôpitaux
-       publics et confessionels au Cameroun`,
+à 70% de tous vos frais de consultation,soins médicaments,labo et hopitalisation dans tous les hôpitaux
+publics et confessionels au Cameroun`,
       buttonMessage:'DEMARRER'
     },
     homePage:{

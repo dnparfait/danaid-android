@@ -25,8 +25,10 @@ exports.create = (dataToSend)=>{
   new TextView({
     text:language.recommandationsBySms.content,
     font:'12px calibri bold',
-    centerX:0,
     top:40,
+    left:25,
+    right:25,
+    height:50,
     textColor:appBasicsInformations.color.color3
   }).appendTo(conteneur);
   const phoneNumber1 = new TextInput({
