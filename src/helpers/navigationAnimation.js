@@ -1,4 +1,4 @@
-module.exports = (navigationViewAnimation,boolAnimation) =>{
+module.exports = (navigationViewAnimation,boolAnimation=true) =>{
   const {contentView,NavigationView} = require('tabris');
   const appBasicsInformations = require('./../helpers/appBasicsInformations.js');
   navigationViewAnimation = new NavigationView({

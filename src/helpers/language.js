@@ -16,8 +16,11 @@ publics et confessionels au Cameroun`,
     userPage:{
       title:'Panel utilisateur',
       menuPrincipal:['SERVICES','CHOISIR UN MEDECIN',
-    'COTISATIONS','MA FAMILLE','FICHE DE SOINS'],
-    bottomBarre:['Médecin','Carte','Utilisateur','Infos']
+    'STATUT','MA FAMILLE','FICHE DE SOINS'],
+    bottomBarre:['Médecin','Carte','Utilisateur','Infos'],
+    myServicePage:{
+      title:'Mes services'
+    }
     },
     askConfirmationCode:{
       title:'CODE DE CONFIRMATION',
@@ -90,7 +93,10 @@ Vous souhaitez une protection solide et durable pour votre famille. Abonnez vous
     userPage:{
       title:'User panel',
       menuPrincipal:['SERVICES','CHOOSE A DOCTOR',
-    'CONTRIBUTIONS','MY FAMILY','CARE RECORD']
+    'STATUT','MY FAMILY','CARE RECORD'],
+      myServicePage:{
+        title:'My Services'
+      }
     },
     askConfirmationCode:{
       title:'CONFIRMATION CODE',

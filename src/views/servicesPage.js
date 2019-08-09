@@ -8,7 +8,10 @@ exports.create = (dataToSend)=>{
   }else{
     language = require('./../helpers/language.js').fr;
   };
+  //We set the default service
   let service = 3;
+  localStorage.setItem('serviceId',service);
+  //
   const compositeService = new ScrollView({
     top:30,
     bottom:70,
@@ -19,9 +22,8 @@ exports.create = (dataToSend)=>{
   let radioOption1 = new RadioButton({text: language.servicePage.service1.name + ' ('+language.servicePage.service1.fees +')',
   top:50,
   checkedTintColor:appBasicsInformations.color.color1,
-   checked: true}).on('checkedChanged',(e)=>{
-     service = e.value == true?3:service;
-     localStorage.setItem('serviceId',service);
+   checked: true}).on('select',(e)=>{
+     radioOption1.checked = true;
    }).appendTo(compositeService);
    let description1 = new TextView({
      top:40,
@@ -33,11 +35,10 @@ exports.create = (dataToSend)=>{
      textColor:appBasicsInformations.color.color3
    }).appendTo(compositeService);
   let radioOption2 = new RadioButton({text: language.servicePage.service2.name + ' ('+language.servicePage.service2.fees +')',
-  checkedTintColor:appBasicsInformations.color.color1,
+  checkedTintColor:appBasicsInformations.color.color3,
   top:200
-  }).on('checkedChanged',(e)=>{
-    service = e.value == true?2:service;
-    localStorage.setItem('serviceId',service);
+  }).on('select',(e)=>{
+    radioOption2.checked = false;
   }).appendTo(compositeService);
   let description2 = new TextView({
     top:190,
@@ -49,11 +50,10 @@ exports.create = (dataToSend)=>{
     textColor:appBasicsInformations.color.color3
   }).appendTo(compositeService);
   let radioOption3 = new RadioButton({text: language.servicePage.service3.name + ' ('+language.servicePage.service3.fees +')',
-  checkedTintColor:appBasicsInformations.color.color1,
+  checkedTintColor:appBasicsInformations.color.color3,
   top:350
-  }).on('checkedChanged',(e)=>{
-    service = e.value == true?1:service;
-    localStorage.setItem('serviceId',service);
+  }).on('select',(e)=>{
+    radioOption3.checked = false;s
   }).appendTo(compositeService);
   let description3 = new TextView({
     top:340,

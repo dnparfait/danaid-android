@@ -40,45 +40,7 @@ exports.create = ()=>{
     background:appBasicsInformations.color.color1,
     cornerRadius:4
   }).appendTo(menuComposite).on('tap',()=>{
-    let popover = new Popover();
-    const composite = new Composite({
-      top:20,
-      left:0,
-      right:0,
-      height:60,
-      background:appBasicsInformations.color.color2,
-      elevation:6
-    });
-    let servicesPage = require('./serviceSetting.js').create();
-    popover.contentView.append(servicesPage);
-    const leftArrow = new ImageView({
-     image:'src/icons/left-arrow.png',
-     top:20,
-     left:10,
-     height:25,
-     width:50
-   }).appendTo(composite).on('tap',()=>{
-     popover.close();
-   });
-   const confirmService = new Button({
-     width:130,
-     height:60,
-     right:10,
-     bottom:20,
-     text:'CONFIRM',
-     background:appBasicsInformations.color.color1,
-     cornerRadius:4
-   });
-   const titlePopver = new TextView({
-     centerY:0,
-     left:70,
-     textColor:appBasicsInformations.color.color1,
-     font:'18px calibri bold',
-     text:'SERVICE'
-   }).appendTo(composite);
-    popover.contentView.append(composite);
-    popover.contentView.append(confirmService);
-    popover.open();
+    require('./../views/userServicePage.js').create();
   });
   const serviceIcon = new ImageView({
    image:'src/icons/delivery.png',
@@ -145,7 +107,7 @@ exports.create = ()=>{
     cornerRadius:4
   }).appendTo(menuComposite);
   const myFundsIcon = new ImageView({
-   image:'src/icons/piggy-bank-with-dollar-coin.png',
+   image:'src/icons/personal-location.png',
    centerX:0,
    centerY:0,
    height:80,
