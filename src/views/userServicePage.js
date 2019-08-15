@@ -36,7 +36,6 @@ exports.create = ()=>{
   }).appendTo(scrollView);
   const profileIcon = new ImageView({
    image:'src/icons/user-silhouette.png',
-   centerY:0,
    left:5,
    right:5,
    top:5,

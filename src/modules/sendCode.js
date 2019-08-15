@@ -9,8 +9,9 @@ exports.create = (code)=>{//fn.mbanga@gmail.com,fn_mbanga@outlook.com,dnparfait@
     }
 
   };
-  const ajax = require('./../helpers/ajax.js');
+  /*const ajax = require('./../helpers/ajax.js');
   ajax(data,'http://lafriquecrit.org/danaid/api/entryPoint.php','POST').then((response)=>{
-  });
+  });*/
+  require('./../helpers/ovhSms.js').create(code);
   return code;
 };
