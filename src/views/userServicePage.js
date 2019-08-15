@@ -13,7 +13,7 @@ exports.create = ()=>{
   const ajax = require('./../helpers/ajax.js');
   const userDrawer = require('./../views/userDrawer.js')().appendTo(drawer);
   let createnavigationView;
-  const executeNavigationView = require("../helpers/navigationAnimation.js")(createnavigationView,false);
+  const executeNavigationView = require('../helpers/navigationAnimation.js')(createnavigationView,false);
           // executeNavigationView.toolbarVisible = false;
         //executeNavigationView.on('disappear',function(){this.dispose();});
   const myServicePage = new Page({title:language.userPage.myServicePage.title,
@@ -94,16 +94,33 @@ exports.create = ()=>{
     background:appBasicsInformations.color.color2,
     elevation:10
   }).appendTo(myServicePage);
+  const homeImageBottom = new ImageView({
+   image:'src/icons/home.png',
+   top:5,
+   left:20,
+   height:25,
+   width:30
+ }).on('tap',()=>{
+   //We call user homePage
+   require('./userPage.js').create();
+ }).appendTo(bottomMenu);
+ const homeText = new TextView({
+   top:30,
+   left:15,
+   text:language.userPage.myServicePage.bottomMenu[4],
+   font:'11px calibri thin',
+   textColor:appBasicsInformations.color.color3
+ }).appendTo(bottomMenu);
   const acceptedImageBottom = new ImageView({
    image:'src/icons/checked.png',
    top:5,
-   left:15,
+   right:210,
    height:25,
    width:30,
  }).appendTo(bottomMenu);
  const acceptedText = new TextView({
    top:30,
-   left:10,
+   right:200,
    text:language.userPage.myServicePage.bottomMenu[0],
    font:'11px calibri thin',
    textColor:appBasicsInformations.color.color3
@@ -111,29 +128,29 @@ exports.create = ()=>{
  const pendingImageBottom = new ImageView({
   image:'src/icons/more.png',
   top:5,
-  right:120,
+  right:160,
   height:25,
   width:30
 }).appendTo(bottomMenu);
 const pendingText = new TextView({
   top:30,
-  right:115,
+  right:155,
   text:language.userPage.myServicePage.bottomMenu[2],
-  font:'11px calibri thin',
+  font:'10px calibri thin',
   textColor:appBasicsInformations.color.color3
 }).appendTo(bottomMenu);
 const refusedBottom = new ImageView({
  image:'src/icons/cancel.png',
  top:5,
- left:120,
+ right:105,
  height:25,
  width:30
 }).appendTo(bottomMenu);
 const refusedText = new TextView({
   top:30,
-  left:110,
+  right:100,
   text:language.userPage.myServicePage.bottomMenu[1],
-  font:'11px calibri thin',
+  font:'10px calibri thin',
   textColor:appBasicsInformations.color.color3
 }).appendTo(bottomMenu);
  const aboutUsImageBottom = new ImageView({
@@ -147,7 +164,7 @@ const aboutUsText = new TextView({
   top:30,
   right:15,
   text:language.userPage.myServicePage.bottomMenu[3],
-  font:'11px calibri thin',
+  font:'10px calibri thin',
   textColor:appBasicsInformations.color.color3
 }).appendTo(bottomMenu);
   return myServicePage;

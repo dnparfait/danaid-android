@@ -20,7 +20,7 @@ publics et confessionels au Cameroun`,
     bottomBarre:['Médecin','Carte','Utilisateur','Infos'],
     myServicePage:{
       title:'Mes services',
-      bottomMenu:['Acceptées','Refusées','En cours','Contactez nous']
+      bottomMenu:['Acceptées','Refusées','En cours','Contactez nous','Accueil']
     }
     },
     askConfirmationCode:{
@@ -97,7 +97,7 @@ Vous souhaitez une protection solide et durable pour votre famille. Abonnez vous
     'STATUT','MY FAMILY','CARE RECORD'],
       myServicePage:{
         title:'My Services',
-        bottomMenu:['Acceptées','Refusées','En cours','Contactez nous']
+        bottomMenu:['Accepted','Rejected','Pending','Contact us','Home']
       }
     },
     askConfirmationCode:{

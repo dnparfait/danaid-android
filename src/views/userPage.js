@@ -9,7 +9,9 @@ exports.create = ()=>{
   };
   statusBar.background = appBasicsInformations.color.color1;
   statusBar.displayMode = 'float';
-  drawer.enabled = true;
+  if(drawer.enabled != true){
+    drawer.enabled = true;
+  }
   const ajax = require('./../helpers/ajax.js');
   const userDrawer = require('./../views/userDrawer.js')().appendTo(drawer);
   let createnavigationView;
