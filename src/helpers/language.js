@@ -21,6 +21,10 @@ publics et confessionels au Cameroun`,
     myServicePage:{
       title:'Mes services',
       bottomMenu:['Acceptées','Refusées','En cours','Contactez nous','Accueil']
+    },
+    userFamilyPage:{
+      title:'Ma famille',
+      bottomMenu:['Acceuil','Nouveau membre']
     }
     },
     askConfirmationCode:{
@@ -98,6 +102,10 @@ Vous souhaitez une protection solide et durable pour votre famille. Abonnez vous
       myServicePage:{
         title:'My Services',
         bottomMenu:['Accepted','Rejected','Pending','Contact us','Home']
+      },
+      userFamilyPage:{
+        title:'My family',
+        bottomMenu:['Home','New member']
       }
     },
     askConfirmationCode:{

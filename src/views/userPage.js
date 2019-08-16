@@ -129,7 +129,9 @@ exports.create = ()=>{
     top:230,
     background:appBasicsInformations.color.color1,
     cornerRadius:4
-  }).appendTo(menuComposite);
+  }).appendTo(menuComposite).on('tap',()=>{
+    require('./../views/userFamilyPage.js').create();
+  });
   const myFamilyIcon = new ImageView({
    image:'src/icons/family.png',
    centerX:0,
@@ -174,104 +176,6 @@ exports.create = ()=>{
     background:appBasicsInformations.color.color2,
     elevation:10
   }).appendTo(userPage);
-  const myDoctorImageBottom = new ImageView({
-   image:'src/icons/doctor.png',
-   top:5,
-   left:15,
-   height:25,
-   width:30,
- }).appendTo(bottomMenu).on('tap',()=>{
-   let popover = new Popover();
-   const composite = new Composite({
-     top:20,
-     left:0,
-     right:0,
-     height:60,
-     background:appBasicsInformations.color.color2,
-     elevation:6
-   });
-   let doctorPage = require('./myDoctor.js')();
-   popover.contentView.append(doctorPage);
-   const leftArrow = new ImageView({
-    image:'src/icons/left-arrow.png',
-    top:20,
-    left:10,
-    height:25,
-    width:50
-  }).appendTo(composite).on('tap',()=>{
-    popover.close();
-  });
-  const titlePopver = new TextView({
-    centerY:0,
-    left:70,
-    textColor:appBasicsInformations.color.color1,
-    font:'18px calibri bold',
-    text:'MEDECIN'
-  }).appendTo(composite);
-   popover.contentView.append(composite);
-   popover.open();
- });
- const myDoctorText = new TextView({
-   top:30,
-   left:10,
-   text:language.userPage.bottomBarre[0],
-   font:'12px calibri thin',
-   textColor:appBasicsInformations.color.color3
- }).appendTo(bottomMenu);
- const addUserImageBottom = new ImageView({
-  image:'src/icons/add-contact.png',
-  top:5,
-  right:105,
-  height:25,
-  width:30
-}).appendTo(bottomMenu).on('tap',()=>{
-    let popover = new Popover();
-    const composite = new Composite({
-      top:20,
-      left:0,
-      right:0,
-      height:60,
-      background:appBasicsInformations.color.color2,
-      elevation:6
-    });
-    let addFamilyMember = require('./addFamilyMember.js')();
-    popover.contentView.append(addFamilyMember);
-    const leftArrow = new ImageView({
-     image:'src/icons/left-arrow.png',
-     top:20,
-     left:10,
-     height:25,
-     width:50
-   }).appendTo(composite).on('tap',()=>{
-     popover.close();
-   });
-   const titlePopver = new TextView({
-     centerY:0,
-     left:70,
-     textColor:appBasicsInformations.color.color1,
-     font:'18px calibri bold',
-     text:'NOUVEAU MEMBRE'
-   }).appendTo(composite);
-   let confirmAddFamilyMember = new Button({
-     width:130,
-     height:60,
-     right:10,
-     bottom:10,
-     text:'AJOUTER',
-     background:appBasicsInformations.color.color1,
-     cornerRadius:4
-   });
-    popover.contentView.append(composite);
-    popover.contentView.append(confirmAddFamilyMember);
-    popover.open();
-});
-const addUserText = new TextView({
-  top:30,
-  right:95,
-  text:language.userPage.bottomBarre[2],
-  font:'12px calibri thin',
-  textColor:appBasicsInformations.color.color3
-}).appendTo(bottomMenu);
 const cardImageBottom = new ImageView({
  image:'src/icons/card.png',
  top:5,
