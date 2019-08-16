@@ -146,7 +146,7 @@ exports.create = ()=>{
    font:'12px calibri thin',
    textColor:appBasicsInformations.color.color2
  }).appendTo(manageMyFamily);
-  const careRecord = new Composite({
+  const customCare = new Composite({
     right:0,
     left:175,
     height:200,
@@ -154,20 +154,20 @@ exports.create = ()=>{
     background:appBasicsInformations.color.color1,
     cornerRadius:4
   }).appendTo(menuComposite);
-  const careRecordIcon = new ImageView({
-   image:'src/icons/medical-prescription.png',
+  const customCareIcon = new ImageView({
+   image:'src/icons/support.png',
    centerX:0,
    centerY:0,
    height:80,
    width:80
- }).appendTo(careRecord);
- const careRecordText = new TextView({
+ }).appendTo(customCare);
+ const customCareText = new TextView({
    bottom:20,
    centerX:0,
    text:language.userPage.menuPrincipal[4],
    font:'12px calibri thin',
    textColor:appBasicsInformations.color.color2
- }).appendTo(careRecord);
+ }).appendTo(customCare);
   const bottomMenu = new Composite({
     height:50,
     left:0,
@@ -176,7 +176,7 @@ exports.create = ()=>{
     background:appBasicsInformations.color.color2,
     elevation:10
   }).appendTo(userPage);
-const cardImageBottom = new ImageView({
+/*const cardImageBottom = new ImageView({
  image:'src/icons/card.png',
  top:5,
  right:197,
@@ -212,14 +212,14 @@ const cardImageBottom = new ImageView({
  }).appendTo(composite);
   popover.contentView.append(composite);
   popover.open();
-});
-const cardText = new TextView({
+});*/
+/*const cardText = new TextView({
   top:30,
   right:198,
   text:language.userPage.bottomBarre[1],
   font:'12px calibri thin',
   textColor:appBasicsInformations.color.color3
-}).appendTo(bottomMenu);
+}).appendTo(bottomMenu);*/
  const settingImageBottom = new ImageView({
   image:'src/icons/controls.png',
   top:5,
