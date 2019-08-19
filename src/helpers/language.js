@@ -23,6 +23,12 @@ publics et confessionels au Cameroun`,
       askforService:'Demander un service',
       bottomMenu:['Acceptées','Refusées','En cours','Contactez nous','Accueil']
     },
+    statut:{
+      title:'Mon statut',
+      menu:['Formule soins','Montant','Consommé','Restant',
+      'Prêt santé','Montant','Consommé','Restant',
+      'Cotisation']
+    },
     userFamilyPage:{
       title:'Ma famille',
       bottomMenu:['Acceuil','Nouveau membre']
@@ -117,6 +123,12 @@ Vous souhaitez une protection solide et durable pour votre famille. Abonnez vous
         title:'My Services',
         askforService:'Ask for service',
         bottomMenu:['Accepted','Rejected','Pending','Contact us','Home']
+      },
+      statut:{
+        title:'Mon statut',
+        menu:['Care formula','Amount','Consumed','Remaining',
+        'Health loan','Amount','Consumed','Remaining',
+        'Cotisation']
       },
       userFamilyPage:{
         title:'My family',
