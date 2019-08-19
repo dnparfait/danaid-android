@@ -39,6 +39,13 @@ exports.create = ()=>{
    height:40,
    width:40
  }).appendTo(compositeAddNewSouscription);
+ const addSouscriptionText = new TextView({
+   centerY:0,
+   left:80,
+   text:language.userPage.myServicePage.askforService,
+   font:'14px calibri thin',
+   textColor:appBasicsInformations.color.color3
+ }).appendTo(compositeAddNewSouscription);
   const compositeWrapperSlide = new Composite({
     top:80,
     left:5,

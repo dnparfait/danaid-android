@@ -20,11 +20,24 @@ publics et confessionels au Cameroun`,
     bottomBarre:['Médecin','Carte','Utilisateur','Infos'],
     myServicePage:{
       title:'Mes services',
+      askforService:'Demander un service',
       bottomMenu:['Acceptées','Refusées','En cours','Contactez nous','Accueil']
     },
     userFamilyPage:{
       title:'Ma famille',
       bottomMenu:['Acceuil','Nouveau membre']
+    },
+    userCustomerCarePage:{
+      title:'Service client',
+      buttonAddDelete:'AJouter/Supprimer mon médecin',
+      buttonSendFile:'Envoyer un fichier',
+      contactUs:{
+        contactus:'Nous contacter',
+        website:['Web site','http://danaid.org'],
+        tel:['Telephone','+237 123 123 123'],
+        email:['Email','infos@danaid.org'],
+      },
+      bottomMenu:['Acceuil','Partager']
     }
     },
     askConfirmationCode:{
@@ -102,11 +115,24 @@ Vous souhaitez une protection solide et durable pour votre famille. Abonnez vous
     bottomBarre:['Médecin','Carte','Utilisateur','Infos'],
       myServicePage:{
         title:'My Services',
+        askforService:'Ask for service',
         bottomMenu:['Accepted','Rejected','Pending','Contact us','Home']
       },
       userFamilyPage:{
         title:'My family',
         bottomMenu:['Home','New member']
+      },
+      userCustomerCarePage:{
+        title:'Customer Care',
+        buttonAddDelete:'Add/Delete my doctor',
+        buttonSendFile:'Send file',
+        contactUs:{
+          contactus:'Contact us',
+          website:['Web site','http://danaid.org'],
+          tel:['Telephone','+237 123 123 123'],
+          email:['Email','infos@danaid.org'],
+        },
+        bottomMenu:['Home','Share']
       }
     },
     askConfirmationCode:{

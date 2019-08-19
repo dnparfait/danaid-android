@@ -12,8 +12,10 @@ exports.create = ()=>{
   if(drawer.enabled != true){
     drawer.enabled = true;
   }
+  drawer.on('close',()=>{
+    //
+  });
   const ajax = require('./../helpers/ajax.js');
-  const userDrawer = require('./../views/userDrawer.js')().appendTo(drawer);
   let createnavigationView;
   const executeNavigationView = require("../helpers/navigationAnimation.js")(createnavigationView,false);
           // executeNavigationView.toolbarVisible = false;
@@ -35,7 +37,7 @@ exports.create = ()=>{
     bottom:0
   }).appendTo(scrollView);
   const services = new Composite({
-    right:175,
+    width:170,
     left:0,
     height:200,
     top:20,
@@ -123,7 +125,7 @@ exports.create = ()=>{
    textColor:appBasicsInformations.color.color2
  }).appendTo(myFunds);
   const manageMyFamily = new Composite({
-    right:175,
+    width:170,
     left:0,
     height:200,
     top:230,
@@ -160,6 +162,8 @@ exports.create = ()=>{
    centerY:0,
    height:80,
    width:80
+ }).on('tap',()=>{
+   require('./../views/userCustomerCarePage.js').create();
  }).appendTo(customCare);
  const customCareText = new TextView({
    bottom:20,
@@ -227,6 +231,7 @@ exports.create = ()=>{
   height:25,
   width:30
 }).appendTo(bottomMenu).on('tap',()=>{
+  require('./../views/userDrawer.js')().appendTo(drawer);
   drawer.open();
 });
 const settingText = new TextView({

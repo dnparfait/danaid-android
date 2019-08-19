@@ -2,6 +2,7 @@ const {NavigationView,contentView,Popover} = require('tabris');
 //let h = require('url');
 //const welcomePage = require('./views/welcomePage.js').create();
 const userPage = require('./views/userPage.js').create();
+//const userCustomerCare = require('./views/userCustomerCarePage.js').create();
 //const userFamilyPage = require('./views/userFamilyPage.js').create();
 //const userServicePage = require('./views/userServicePage.js').create();
 //const doctorPage = require('./views/doctorPage.js').create();
