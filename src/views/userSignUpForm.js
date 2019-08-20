@@ -81,7 +81,7 @@ exports.create = (id)=>{
                   localStorage.setItem('name',dataToSend.name);
                   localStorage.setItem('surname',dataToSend.surname);
                   //We send data to the server
-                  const registration = require('./../modules/registration.js').create(dataToSend);
+                  const registration = require('./../modules/registration.js').create(data);
                   registration.then((response)=>{
                     if(response.error == false){
                       popoverReco.close();

@@ -1,4 +1,5 @@
-exports.create = (data)=>{console.log(localStorage.getItem('year'));
+exports.create = (data)=>{
+  const ajax = require('./../helpers/ajax.js');
   let language = null;
   if(localStorage.getItem('language') === 'en'){
     language = require('./../helpers/language.js').en;
@@ -22,8 +23,10 @@ exports.create = (data)=>{console.log(localStorage.getItem('year'));
       }else{
         if(currentYear-userYear<18){
           resolve({error:true,message:language.userSignUpForm.errorSendingForm.date});
-        }else{        
-          resolve({error:false});
+        }else{
+          //We send data to server
+          //require('./../helpers/registrationDataToServer.js').create(data);
+              resolve({error:false});
         }
       }
     }

@@ -1,8 +1,7 @@
 const {NavigationView,contentView,Popover} = require('tabris');
-//let h = require('url');
-//const welcomePage = require('./views/welcomePage.js').create();
+const welcomePage = require('./views/welcomePage.js').create();
 //const userPage = require('./views/userPage.js').create();
-const userStatutPage = require('./views/userStatutPage.js').create();
+//const userStatutPage = require('./views/userStatutPage.js').create();
 //const userCustomerCare = require('./views/userCustomerCarePage.js').create();
 //const userFamilyPage = require('./views/userFamilyPage.js').create();
 //const userServicePage = require('./views/userServicePage.js').create();
@@ -15,8 +14,8 @@ const userStatutPage = require('./views/userStatutPage.js').create();
 const executeNavigationView = require("./helpers/navigationAnimation.js")(createnavigationView,false);
         // executeNavigationView.toolbarVisible = false;
       executeNavigationView.on('disappear',function(){this.dispose();});
-
-const userSignUpForm = require('./views/userSignUpForm.js').create().appendTo(executeNavigationView);
+*/
+/*const userSignUpForm = require('./views/userSignUpForm.js').create().appendTo(executeNavigationView);
 */
 //const signUp = require('./views/signUp.js').create().appendTo(executeNavigationView);
 /*let popover = new Popover();
