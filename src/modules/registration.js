@@ -8,7 +8,7 @@ exports.create = (data)=>{
   }
   return new Promise((resolve,reject)=>{console.log('________________');console.log(data);
       data.data.serviceId = localStorage.getItem('serviceId');
-      ajax(data,'https://www.danaid.org/api/entryPoint.php','POST').then((response)=>{
+      ajax(data,'https://www.danaid.org/danaid/api/entryPoint.php','POST').then((response)=>{
         if(response.error == false){
           resolve({error:false});
         }

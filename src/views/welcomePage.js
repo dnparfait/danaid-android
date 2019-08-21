@@ -107,7 +107,7 @@ exports.create = ()=>{
                   loader.refreshIndicator = false;
                   startButton.appendTo(wrapper);
                   //console.log(response.location.calling_code);
-                }).catch((error)=>{console.log(error);
+                }).catch((error)=>{
                     new AlertDialog({
                       title: 'Alerte',
                       message:'Internet connection problem!',

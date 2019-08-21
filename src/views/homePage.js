@@ -62,8 +62,9 @@ exports.create = (dataFromGeolocation)=>{
           buttons: {ok: 'OK'}
         }).open();
       }else{
+        let phone = phoneIndicatif.text+phoneNumber.text;
         let randomCode = 2019 +(Math.floor(Math.random() * 1000) + 1);
-        require("./../modules/sendCode.js").create(randomCode);
+        require("./../modules/sendCode.js").create(randomCode,phone);
         //Countdown for code CONFIRMATION
         setTimeout(()=>{
           randomCode = 0;
