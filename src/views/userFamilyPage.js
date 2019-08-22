@@ -1,5 +1,5 @@
 exports.create = ()=>{
-  const {Page,Composite,Popover,drawer,statusBar,DateDialog,Picker,Switch,ScrollView,TextView,TextInput,Button,ImageView} = require('tabris');
+  const {Page,Composite,Popover,drawer,statusBar,AlertDialog,DateDialog,Picker,Switch,ScrollView,TextView,TextInput,Button,ImageView} = require('tabris');
   const appBasicsInformations = require('./../helpers/appBasicsInformations.js');
   let language = null;
   if(localStorage.getItem('language') === 'en'){
@@ -23,6 +23,151 @@ exports.create = ()=>{
     right:0,
     bottom:50
   }).appendTo(useFamilyPage);
+  const dataToSend = {
+    matricule:'',
+    name:'',
+    surname:'',
+    genre:'M',
+    dob:'',
+    bound_to:'',
+    date:'',
+    year:'',
+    long:'',
+    lat:'',
+    year:0
+  };
+  let data = {
+    requestName:'addFamilyMember',
+    data:dataToSend
+  };
+  //For add family popover
+  const formName = new TextInput({
+      id:'',
+      left: 15,
+      right: 15,
+      top:40,
+      height:50,
+      borderColor:appBasicsInformations.color.color3,
+      message:language.chooseAProfilePage.userForm[0],
+      textColor:appBasicsInformations.color.color1
+  }).on('tap',(e)=>{
+      formName.id = e.value;
+      dataToSend.name = e.value;
+  });
+  const formSurName = new TextInput({
+      id:'',
+      left: 15,
+      right: 15,
+      top:90,
+      height:50,
+      borderColor:appBasicsInformations.color.color3,
+      message:language.chooseAProfilePage.userForm[1],
+      textColor:appBasicsInformations.color.color1
+  }).on('tap',(e)=>{
+      dataToSend.surname = e.value;
+  });
+  const getDate = new Button({
+    id:0,
+    left: 15,
+    width: 120,
+    top:136,
+    height:60,
+    background:appBasicsInformations.color.color1,
+    text:language.chooseAProfilePage.userForm[2],
+    textColor:appBasicsInformations.color.color2
+  }).on('tap',()=>{
+    const getDateDialog = new DateDialog().on('select',(e)=>{
+      let x = JSON.stringify(e.date);
+      x = x.substr(1, 10);
+      let tab = x.split('-');
+      formDateOfBith.text = ''+tab[2]+'-'+tab[1]+'-'+tab[0];
+      let dob = ''+tab[2]+'-'+tab[1]+'-'+tab[0];
+      dataToSend.year = tab[0];
+      dataToSend.dob = dob;
+      function getMatricule(date){
+        let matricule = JSON.stringify(e.date);
+        matricule = matricule.substr(1, 10);
+        let tab = matricule.split('-');
+        matricule = ''+tab[0]+''+tab[1]+''+tab[2];
+        return matricule;
+      }
+      dataToSend.matricule = getMatricule(e.date);
+    }).open();
+  });
+  const formDateOfBith = new TextInput({
+      id:'',
+      left: 150,
+      right: 15,
+      editable:false,
+      top:138,
+      height:50,
+      borderColor:appBasicsInformations.color.color3,
+      textColor:appBasicsInformations.color.color1
+  });
+  const switchGenreComposite = new Composite({
+    centerX:0,
+    top:250,
+    height:50,
+    width:180,
+    background:appBasicsInformations.color.color2,
+    cornerRadius:20,
+    elevation:6
+  });
+  const maleGenre = new TextView({
+    centerY:0,
+    left:10,
+    text:language.userSignUpForm.genreText[0],
+    textColor:appBasicsInformations.color.color3
+  }).appendTo(switchGenreComposite);
+  const femaleGenre = new TextView({
+    centerY:0,
+    right:10,
+    text:language.userSignUpForm.genreText[1],
+    textColor:appBasicsInformations.color.color3
+  }).appendTo(switchGenreComposite);
+  const switcher = new Switch({
+    id:'M',
+    centerX:0,
+    centerY:0,
+    trackOnColor:'#b0b0b0',
+    thumbOnColor:appBasicsInformations.color.color1
+  }).appendTo(switchGenreComposite).on('checkedChanged',(e)=>{
+    switcher.id = e.value==false?'M':'F';
+  });
+  //
+  const callHandler = ()=>{
+    dataToSend.name = formName.text;
+    dataToSend.surname = formSurName.text;
+    dataToSend.genre = switcher.id;
+    dataToSend.bound_to = localStorage.getItem('matricule');
+    let handlerUser = require('./../modules/handlerAddFamilyMember.js').create(dataToSend).then((response)=>{
+      if(response.error == true){
+        new AlertDialog({
+          title: 'Alerte',
+          message:response.message,
+          buttons: {ok: 'OK'}
+        }).open();
+      }else{
+        ajax(data,'https://www.danaid.org/danaid/api/entryPoint.php','POST').then((response)=>{
+          if(response.error == true){
+            new AlertDialog({
+              title: 'Alerte',
+              message:'Matricule déjà existant!',
+              buttons: {ok: 'OK'}
+            }).open();
+          }else{
+            popover.close();
+            new AlertDialog({
+              title: 'Alerte',
+              message:'Nouveau membre de famille ajouté',
+              buttons: {ok: 'OK'}
+            }).open();
+          }
+        });
+      }
+    });
+    //
+  };
   const compositeWrapperSlide = new Composite({
     bottom:10,
     left:5,
@@ -161,8 +306,13 @@ const addImageBottom = new ImageView({
    text:'AJOUTER',
    background:appBasicsInformations.color.color1,
    cornerRadius:4
- });
-  popover.contentView.append(composite);
+ }).on('tap',callHandler);
+  popover.contentView.append(getDate);
+  popover.contentView.append(getDate);
+  popover.contentView.append(formName);
+  popover.contentView.append(formSurName);
+  popover.contentView.append(formDateOfBith);
+  popover.contentView.append(switchGenreComposite);
   popover.contentView.append(confirmAddFamilyMember);
   popover.open();
 }).appendTo(bottomMenu);
