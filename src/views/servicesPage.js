@@ -53,7 +53,7 @@ exports.create = (dataToSend)=>{
   checkedTintColor:appBasicsInformations.color.color3,
   top:350
   }).on('select',(e)=>{
-    radioOption3.checked = false;s
+    radioOption3.checked = false;
   }).appendTo(compositeService);
   let description3 = new TextView({
     top:340,

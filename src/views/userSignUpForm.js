@@ -1,5 +1,5 @@
 exports.create = (id)=>{
-  const {Page,Popover,Switch,Picker,AlertDialog,DateDialog,CollectionView,statusBar,ImageView,TextView,Composite,Button,ScrollView,TextInput} = require('tabris');
+  const {Page,Popover,RefreshComposite,Switch,Picker,AlertDialog,DateDialog,CollectionView,statusBar,ImageView,TextView,Composite,Button,ScrollView,TextInput} = require('tabris');
   const appBasicsInformations = require('./../helpers/appBasicsInformations.js');
   const userSignUpPage = new Page({title:'USER - INSCRIPTION',
     top:0,
@@ -13,7 +13,7 @@ exports.create = (id)=>{
     left:0,
     right:0
   }).appendTo(userSignUpPage);
-  let dataToSend = {
+  const dataToSend = {
     language:localStorage.getItem('language'),
     idAccountType:1,
     matricule:'',
@@ -26,8 +26,9 @@ exports.create = (id)=>{
     commune:'',
     matrimonialStatut:'',
     genre:'M',
-    dob:0,
+    dob:'',
     date:'',
+    year:'',
     long:'',
     lat:'',
     year:0
@@ -82,12 +83,29 @@ exports.create = (id)=>{
                   localStorage.setItem('surname',dataToSend.surname);
                   //We send data to the server
                   const registration = require('./../modules/registration.js').create(data);
+                  /*new RefreshComposite({layoutData: 'stretch'}).onRefresh(() => console.log('Refreshing...'))
+                    .appendTo(popoverReco);*/
                   registration.then((response)=>{
                     if(response.error == false){
                       popoverReco.close();
                       popover.close();
-                      dataToSend.serviceId = localStorage.getItem('serviceId');
+                      //dataToSend.serviceId = localStorage.getItem('serviceId');
+                      localStorage.setItem('matricule',dataToSend.matricule);
                       const userPage = require('./../views/userPage.js').create(dataToSend);
+                    }else{
+                      if(response.message == 'email'){
+                        new AlertDialog({
+                          title: 'Alerte',
+                          message:'Email déjà existant!',
+                          buttons: {ok: 'OK'}
+                        }).open();
+                      }else{
+                        new AlertDialog({
+                          title: 'Alerte',
+                          message:'Matricule déjà existant!',
+                          buttons: {ok: 'OK'}
+                        }).open();
+                      }
                     }
                   });
                 });
@@ -219,8 +237,8 @@ exports.create = (id)=>{
         let tab = x.split('-');
         formDateOfBith.text = ''+tab[2]+'-'+tab[1]+'-'+tab[0];
         let dob = ''+tab[2]+'-'+tab[1]+'-'+tab[0];
-        localStorage.setItem('year',tab[0]);
-        localStorage.setItem('dob',dob);
+        dataToSend.year = tab[0];
+        dataToSend.dob = dob;
         function getMatricule(date){
           let matricule = JSON.stringify(e.date);
           matricule = matricule.substr(1, 10);
@@ -229,7 +247,6 @@ exports.create = (id)=>{
           return matricule;
         }
         dataToSend.matricule = getMatricule(e.date);
-        localStorage.setItem('matricule',dataToSend.matricule);
       }).open();
   });
   const formDateOfBith = new TextInput({

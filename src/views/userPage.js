@@ -11,6 +11,7 @@ exports.create = ()=>{
   statusBar.displayMode = 'float';
   if(drawer.enabled != true){
     drawer.enabled = true;
+    require('./../views/userDrawer.js')().appendTo(drawer);
   }
   drawer.on('close',()=>{
     //
@@ -231,7 +232,6 @@ exports.create = ()=>{
   height:25,
   width:30
 }).appendTo(bottomMenu).on('tap',()=>{
-  require('./../views/userDrawer.js')().appendTo(drawer);
   drawer.open();
 });
 const settingText = new TextView({
